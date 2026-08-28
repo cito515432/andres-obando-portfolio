@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: andres-obando-portfolio
+    runtime: node
+    plan: free
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0

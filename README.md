@@ -1,26 +1,33 @@
-# Portafolio profesional de Andrés Obando
+# Andrés Obando — Professional Portfolio
 
-Portafolio web con hoja de vida, experiencia, proyectos, habilidades, educación y certificados. El contenido está organizado para que sea sencillo de mantener y desplegar en Render.
+Portafolio profesional orientado a oportunidades de **Data Engineering** e **Ingeniería de Sistemas**. Reúne proyectos, experiencia, stack técnico, hoja de vida y credenciales verificables en una experiencia responsive y enfocada en reclutadores.
 
-## Decisión de arquitectura
+## Objetivo del sitio
 
-La primera versión no usa base de datos. Para un portafolio público, los datos cambian poco y se pueden administrar con un único archivo; esto evita costos, credenciales, formularios de administración y mantenimiento innecesario.
+La web está diseñada para responder rápidamente cuatro preguntas:
 
-- Aplicación: Next.js compatible mediante Vinext
-- Contenido profesional: `data/portfolio.ts`
-- Página y componentes: `components/portfolio-site.tsx`
-- Estilos: `app/globals.css`
-- CV público: `public/documents/cv/`
-- Certificados públicos: `public/documents/certificates/`
-- Vistas previas: `public/images/certificates/`
+1. ¿Quién es Andrés y qué tipo de rol busca?
+2. ¿Qué tecnologías ha aplicado realmente?
+3. ¿Qué proyectos demuestran esas habilidades?
+4. ¿Cómo puede un reclutador contactarlo o revisar su CV/GitHub?
 
-TiDB se puede incorporar más adelante si se necesita un panel privado para crear, editar y ordenar contenido desde el navegador.
+## Stack
 
-## Privacidad
+- Next.js 16
+- React 19
+- TypeScript
+- CSS responsive sin framework visual adicional
+- Lucide React para iconografía
+- Render para despliegue
 
-Los documentos incluidos son copias preparadas para publicación. Se ocultaron identificaciones personales, el teléfono del CV y los datos de contacto de referencias. Los archivos originales no forman parte del proyecto.
+## Estructura principal
 
-Antes de publicar documentos nuevos, revise nombres de terceros, números de identificación, teléfonos, direcciones, firmas, códigos privados y metadatos.
+- `app/` — layout, metadata SEO, Open Graph y página principal
+- `components/portfolio-site.tsx` — experiencia principal del portafolio
+- `data/portfolio.ts` — proyectos, experiencia, habilidades y certificados
+- `public/documents/` — CV y certificados públicos
+- `public/images/` — retrato y previews de certificados
+- `render.yaml` — configuración de despliegue en Render
 
 ## Desarrollo local
 
@@ -30,45 +37,53 @@ Requisitos:
 - npm
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
 Abra `http://localhost:3000`.
 
-## Verificación
+## Verificación antes de publicar
 
 ```bash
 npm run lint
 npm run build
 ```
 
-## Actualizar información
+## Actualizar el contenido
 
-1. Abra `data/portfolio.ts`.
-2. Edite el arreglo correspondiente: `projects`, `experience`, `skillGroups` o `certificates`.
-3. Si agrega un certificado, copie el PDF público protegido a `public/documents/certificates/` y su vista previa a `public/images/certificates/`.
-4. Ejecute la verificación antes de publicar.
+La mayor parte del contenido profesional está centralizada en `data/portfolio.ts`.
 
-## Publicar en Render
+- Para agregar o editar un proyecto, modifique `projects`.
+- Para actualizar experiencia, modifique `experience`.
+- Para cambiar el stack, modifique `skillGroups`.
+- Para agregar una credencial, modifique `certificates` y añada sus archivos públicos en `public/`.
 
-El archivo `render.yaml` ya define un servicio web de Node.js.
+Los certificados marcados con `priority: true` aparecen primero en la vista curada; el usuario puede expandir la colección completa.
 
-1. Suba este proyecto a un repositorio de GitHub.
-2. En Render seleccione **New > Blueprint**.
-3. Conecte el repositorio.
+## Privacidad
+
+Los documentos incluidos son copias preparadas para publicación. Antes de incorporar nuevos PDFs o imágenes, revise que no contengan números de identificación, teléfonos de terceros, firmas, direcciones, credenciales, tokens o metadatos sensibles.
+
+## Despliegue en Render
+
+El repositorio incluye `render.yaml`.
+
+1. Conecte el repositorio de GitHub en Render.
+2. Seleccione **New > Blueprint**.
+3. Elija `cito515432/andres-obando-portfolio`.
 4. Confirme la creación del servicio.
 
-Render usará:
+Render ejecutará:
 
-- Build: `npm ci && npm run build`
+- Build: `npm install --no-audit --no-fund && npm run build`
 - Start: `npm start`
 - Health check: `/`
+- Auto deploy: cada commit a la rama conectada
 
-No se requieren variables de entorno para esta versión.
+No se requieren variables de entorno para la versión actual.
 
-## Enlaces del portafolio
+## Enlaces
 
-- GitHub: <https://github.com/cito515432>
-- LinkedIn: <https://www.linkedin.com/in/andres-obando-08095b203>
-
+- GitHub: https://github.com/cito515432
+- LinkedIn: https://www.linkedin.com/in/andres-obando-08095b203
