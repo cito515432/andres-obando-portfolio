@@ -263,7 +263,11 @@ h3 {
 .study-grid section { min-height: 150px; padding: 1.5rem; background: var(--paper-light); }
 .study-grid h2 { margin-bottom: .55rem; font-size: 1rem; }
 .study-grid p { margin-bottom: 0; color: var(--ink-soft); }
-.study-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1rem; color: var(--forest); font-size: .84rem; font-weight: 800; }
+.study-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1rem; padding-bottom: .15rem; border-bottom: 1px solid currentColor; color: var(--paper-light); font-size: .84rem; font-weight: 800; }
+.study-link:visited { color: var(--paper-light); }
+.study-link:hover,
+.study-link:focus-visible { color: var(--yellow); }
+.study-link:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
 
 @media (max-width: 900px) {
   .desktop-nav, .site-header > .header-inner > .language-switcher, .header-cta { display: none; }
