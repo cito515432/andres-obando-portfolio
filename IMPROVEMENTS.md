@@ -20,3 +20,18 @@ Esta versión prioriza claridad para reclutadores de Data Engineering e Ingenier
 - Configuración de Render actualizada para despliegue automático.
 - Accesibilidad reforzada con foco visible, navegación por anclas y preferencia de movimiento reducido.
 - README reconstruido para que el propio repositorio también funcione como pieza de portafolio.
+
+## Evolución internacional
+
+- Rutas estáticas `/`, `/en/`, `/fr/` y `/pt/` con componentes compartidos y traducciones locales.
+- Casos de estudio verificables para Customer Churn, Global ISO Security, FC Barcelona Player Performance ML y Laptop Price Statistical Analysis.
+- Sitemap, robots, canonical, hreflang y metadata localizada.
+- Workflow gratuito de GitHub Actions para validar instalación, lint, Static Export y `out/index.html`.
+- Analítica opcional preparada mediante `NEXT_PUBLIC_GA_ID`, desactivada por defecto.
+
+### Pendientes honestos
+
+- Medir Lighthouse/Core Web Vitals en un navegador de producción; el proyecto no afirma resultados no medidos.
+- Separar más contenido estático de `PortfolioSite` para reducir JavaScript del cliente en una iteración posterior; actualmente el estado se limita a menú, filtros y selector de idioma para preservar estabilidad.
+- Incorporar métricas finales de Barcelona y el dataset autorizado de Laptop Price únicamente cuando estén disponibles.
+- Evaluar orquestación, data quality, cargas incrementales, dbt, particionamiento y data warehouse como mejoras futuras, no como experiencia actual.

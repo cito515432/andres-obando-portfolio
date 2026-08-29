@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { profile } from "@/data/portfolio";
+import { Analytics } from "@/components/analytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
   creator: profile.name,
   category: "technology",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/", languages: { es: "/", en: "/en/", fr: "/fr/", pt: "/pt/" } },
   openGraph: {
     title: "Andrés Obando | Data Engineering & Systems Engineering",
     description:
@@ -80,6 +82,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
