@@ -10,10 +10,16 @@ function localizedHref(pathname: string, hash: string, target: Locale) {
   return `${prefix}${withoutLocale === "/" ? "/" : withoutLocale}${hash}`;
 }
 
-export function LanguageSwitcher({ locale, mobile = false }: { locale: Locale; mobile?: boolean }) {
+export function LanguageSwitcher({ locale, mobile = false, hero = false }: { locale: Locale; mobile?: boolean; hero?: boolean }) {
   const pathname = usePathname();
   const hash = typeof window === "undefined" ? "" : window.location.hash;
   const current = localeMeta[locale];
+  if (hero) return <div className="hero-language-picker" aria-label={copy[locale].ui.languagePrompt}>
+    <p><Globe2 size={17} aria-hidden="true" /> {copy[locale].ui.languagePrompt}</p>
+    <div className="hero-language-options">
+      {locales.map((code) => { const item = localeMeta[code]; return <a key={code} href={localizedHref(pathname, hash, code)} aria-current={code === locale ? "page" : undefined}><span aria-hidden="true">{item.flag}</span> {item.label}{code === locale && <Check size={14} aria-hidden="true" />}</a>; })}
+    </div>
+  </div>;
   return (
     <details className={`language-switcher${mobile ? " mobile-language-switcher" : ""}`}>
       <summary aria-label={copy[locale].ui.language}>

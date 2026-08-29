@@ -84,6 +84,24 @@ const certificateFilterLabels: Record<Locale, Record<typeof certificateFilters[n
   pt: { all: "Todos", Datos: "Dados", Desarrollo: "Desenvolvimento", Gestión: "Gestão", Idiomas: "Idiomas", Otros: "Outros" },
 };
 
+const localizeDate = (value: string, locale: Locale) => {
+  if (locale === "es") return value;
+  const months: Record<Locale, Record<string, string>> = {
+    es: {}, en: { "Ene.": "Jan.", "Feb.": "Feb.", "Mar.": "Mar.", "Abr.": "Apr.", "Jun.": "Jun.", "Jul.": "Jul.", "Ago.": "Aug.", "Sep.": "Sep.", "Oct.": "Oct.", "Nov.": "Nov.", "Dic.": "Dec.", actualidad: "present", horas: "hours" }, fr: { "Ene.": "janv.", "Feb.": "févr.", "Mar.": "mars", "Abr.": "avr.", "Jun.": "juin", "Jul.": "juil.", "Ago.": "août", "Sep.": "sept.", "Oct.": "oct.", "Nov.": "nov.", "Dic.": "déc.", actualidad: "aujourd’hui", horas: "heures" }, pt: { "Ene.": "jan.", "Feb.": "fev.", "Mar.": "mar.", "Abr.": "abr.", "Jun.": "jun.", "Jul.": "jul.", "Ago.": "ago.", "Sep.": "set.", "Oct.": "out.", "Nov.": "nov.", "Dic.": "dez.", actualidad: "atual", horas: "horas" },
+  };
+  return Object.entries(months[locale]).reduce((text, [from, to]) => text.replaceAll(from, to), value);
+};
+
+const localizeMetric = (value: string, locale: Locale) => {
+  const translations: Record<Locale, Record<string, string>> = { es: {}, en: { "Proyecto inicial": "Initial project", "Progresión académica": "Academic progression" }, fr: { "Proyecto inicial": "Projet initial", "Progresión académica": "Progression académique" }, pt: { "Proyecto inicial": "Projeto inicial", "Progresión académica": "Progressão acadêmica" } };
+  return translations[locale][value] ?? value;
+};
+
+const localizeSkill = (value: string, locale: Locale) => {
+  const translations: Record<Locale, Record<string, string>> = { es: {}, en: { "Análisis de datos": "Data analysis", Liderazgo: "Leadership", Docencia: "Teaching", Comunicación: "Communication", "Gestión de proyectos": "Project management" }, fr: { "Análisis de datos": "Analyse de données", Liderazgo: "Leadership", Docencia: "Enseignement", Comunicación: "Communication", "Gestión de proyectos": "Gestion de projet" }, pt: { "Análisis de datos": "Análise de dados", Liderazgo: "Liderança", Docencia: "Ensino", Comunicación: "Comunicação", "Gestión de proyectos": "Gestão de projetos" } };
+  return translations[locale][value] ?? value;
+};
+
 export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
   const c = copy[locale];
   const navigation = navigationKeys.map(([key, href]) => ({ label: c.nav[key], href }));
@@ -175,7 +193,8 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
       <div id="contenido">
         <section className="hero" id="inicio">
           <div className="hero-grid shell">
-            <div className="hero-copy reveal">
+              <div className="hero-copy reveal">
+              <LanguageSwitcher locale={locale} hero />
               <div className="availability">
                 <span aria-hidden="true" />
                 {c.hero.availability}
@@ -339,7 +358,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                 <a href={project.url} target="_blank" rel="noreferrer" key={project.name}>
                   <span>
                     <strong>{project.name}</strong>
-                    <small>{project.metric}</small>
+                    <small>{localizeMetric(project.metric, locale)}</small>
                   </span>
                   <ArrowUpRight aria-hidden="true" />
                 </a>
@@ -363,7 +382,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               <div className="timeline">
                 {experience.map((item) => (
                   <article key={`${item.company}-${item.role}`}>
-                    <time>{item.period}</time>
+                    <time>{localizeDate(item.period, locale)}</time>
                     <div>
                       <h4>{c.experienceCopy[item.company]?.role ?? item.role}</h4>
                       <p className="company">{item.company}</p>
@@ -398,7 +417,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                 <h4>{c.skillGroups[group.title] ?? group.title}</h4>
                 <ul>
                   {group.skills.map((skill) => (
-                    <li key={skill}>{skill}</li>
+                    <li key={skill}>{localizeSkill(skill, locale)}</li>
                   ))}
                 </ul>
               </div>
@@ -442,7 +461,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                     )}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`Ampliar certificado: ${certificate.title}`}
+                    aria-label={`${c.certificates.enlarge}: ${certificate.title}`}
                   >
                     <Image
                       src={certificate.image}
@@ -457,8 +476,8 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                   </a>
                   <div className="certificate-copy">
                     <div className="certificate-meta">
-                      <span>{certificate.category}</span>
-                      <time>{certificate.date}</time>
+                      <span>{certificateFilterLabels[locale][certificate.category]}</span>
+                    <time>{localizeDate(certificate.date, locale)}</time>
                     </div>
                     <h3>{certificate.title}</h3>
                     <p>{certificate.issuer}</p>
@@ -466,7 +485,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                       {certificate.documents.map((document) => (
                         <a href={document.url} download key={document.url}>
                           <FileText size={15} aria-hidden="true" />
-                          {document.label}
+                          {locale === "en" ? (document.label === "Ver certificado" ? "View certificate" : document.label === "Certificado" ? "Certificate" : "Diploma") : locale === "fr" ? (document.label === "Ver certificado" ? "Voir le certificat" : document.label === "Certificado" ? "Certificat" : "Diplôme") : locale === "pt" ? (document.label === "Ver certificado" ? "Ver certificado" : document.label === "Certificado" ? "Certificado" : "Diploma") : document.label}
                         </a>
                       ))}
                     </div>
