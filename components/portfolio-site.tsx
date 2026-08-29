@@ -239,10 +239,10 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               <figure className="portrait-card">
                 <div className="portrait-frame">
                   <Image
-                    src="/images/andres-obando.png"
+                    src="/images/andres-obando.webp"
                     alt={c.ui.portraitAlt}
-                    width={480}
-                    height={480}
+                    width={1254}
+                    height={1254}
                     priority
                   />
                 </div>
