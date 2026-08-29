@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { profile } from "@/data/portfolio";
-import { Analytics } from "@/components/analytics";
-import "./globals.css";
 
-export const metadata: Metadata = {
+export const siteMetadata: Metadata = {
   metadataBase: new URL("https://andres-obando-portfolio-static.onrender.com"),
   title: "Andrés Obando | Data Engineering & Systems Engineering",
   description:
@@ -49,7 +47,7 @@ export const metadata: Metadata = {
   },
 };
 
-const structuredData = {
+export const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
@@ -73,27 +71,3 @@ const structuredData = {
     "Databases",
   ],
 };
-
-export default async function RootLayout({
-  children,
-  params,
-}: Readonly<{
-  children: React.ReactNode;
-  params?: Promise<{ locale?: string }>;
-}>) {
-  const routeParams = params ? await params : {};
-  const htmlLang = ["en", "fr", "pt"].includes(routeParams.locale ?? "") ? routeParams.locale : "es";
-  return (
-    <html lang={htmlLang}>
-      <body>
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.lang=location.pathname.startsWith('/fr')?'fr':location.pathname.startsWith('/pt')?'pt':location.pathname.startsWith('/en')?'en':'es';" }} />
-        <Analytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        {children}
-      </body>
-    </html>
-  );
-}
