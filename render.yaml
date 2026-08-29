@@ -3,7 +3,7 @@ services:
     name: andres-obando-portfolio-static
     runtime: static
     repo: https://github.com/cito515432/andres-obando-portfolio
-    branch: static-render-optimization
+    branch: main
     buildCommand: npm install --no-audit --no-fund && npm run build
     staticPublishPath: ./out
     autoDeployTrigger: commit
