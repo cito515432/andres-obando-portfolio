@@ -15,6 +15,14 @@ export function Analytics() {
     const gtag = (...args: unknown[]) => dataLayer.push(args);
     gtag("js", new Date());
     gtag("config", id, { anonymize_ip: true });
+    const trackLink = (event: Event) => {
+      const link = (event.target as HTMLElement).closest("a");
+      const href = link?.getAttribute("href") ?? "";
+      const eventName = href.includes("github.com") ? "github_click" : href.includes("linkedin.com") ? "linkedin_click" : href.includes("/documents/cv/") ? "cv_download" : href.includes("/case-studies/") ? "case_study_open" : /^\/(en|fr|pt)\/?(?:#|$)/.test(href) || href === "/" ? "language_select" : "";
+      if (eventName) gtag("event", eventName, { link_url: href });
+    };
+    document.addEventListener("click", trackLink);
+    return () => document.removeEventListener("click", trackLink);
   }, []);
   return null;
 }
