@@ -74,14 +74,19 @@ const structuredData = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params?: Promise<{ locale?: string }>;
 }>) {
+  const routeParams = params ? await params : {};
+  const htmlLang = ["en", "fr", "pt"].includes(routeParams.locale ?? "") ? routeParams.locale : "es";
   return (
-    <html lang="es">
+    <html lang={htmlLang}>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.lang=location.pathname.startsWith('/fr')?'fr':location.pathname.startsWith('/pt')?'pt':location.pathname.startsWith('/en')?'en':'es';" }} />
         <Analytics />
         <script
           type="application/ld+json"

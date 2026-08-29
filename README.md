@@ -20,7 +20,7 @@ La web está diseñada para responder rápidamente cuatro preguntas:
 - Lucide React para iconografía
 - Render para despliegue
 
-La aplicación usa componentes compartidos y diccionarios locales en `data/i18n.ts`. Next.js genera HTML estático para español, inglés, francés y portugués; no hay servidor Node ni traducción externa.
+La aplicación usa componentes compartidos y diccionarios locales en `data/i18n.ts`. Next.js genera HTML estático para español, inglés, francés y portugués; no hay servidor Node ni traducción externa. El selector reutilizable conserva la ruta, el caso de estudio y el hash al cambiar de idioma.
 
 ## Estructura principal
 
@@ -29,6 +29,8 @@ La aplicación usa componentes compartidos y diccionarios locales en `data/i18n.
 - `data/portfolio.ts` — proyectos, experiencia, habilidades y certificados
 - `data/i18n.ts` — traducciones y rutas por idioma
 - `data/case-studies.ts` — casos de estudio técnicos verificados
+- `components/language-switcher.tsx` — selector accesible y contextual de idioma
+- `components/case-study-header.tsx` — encabezado ligero para casos de estudio
 - `app/[locale]/` — páginas localizadas generadas durante el build
 - `app/case-studies/` — casos de estudio en español
 - `public/documents/` — CV y certificados públicos

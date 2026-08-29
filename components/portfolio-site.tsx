@@ -32,6 +32,7 @@ import {
   type Project,
 } from "@/data/portfolio";
 import { copy, localeMeta, type Locale } from "@/data/i18n";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 const navigationKeys = [
   ["profile", "#perfil"], ["projects", "#proyectos"], ["experience", "#experiencia"],
@@ -67,8 +68,8 @@ function ProjectMark({ kind }: { kind: Project["kind"] }) {
   return <Code2 {...iconProps} />;
 }
 
-const certificateFilters: Array<"Todos" | Certificate["category"]> = [
-  "Todos",
+const certificateFilters: Array<"all" | Certificate["category"]> = [
+  "all",
   "Datos",
   "Desarrollo",
   "Gestión",
@@ -76,16 +77,23 @@ const certificateFilters: Array<"Todos" | Certificate["category"]> = [
   "Otros",
 ];
 
+const certificateFilterLabels: Record<Locale, Record<typeof certificateFilters[number], string>> = {
+  es: { all: "Todos", Datos: "Datos", Desarrollo: "Desarrollo", Gestión: "Gestión", Idiomas: "Idiomas", Otros: "Otros" },
+  en: { all: "All", Datos: "Data", Desarrollo: "Development", Gestión: "Management", Idiomas: "Languages", Otros: "Other" },
+  fr: { all: "Tous", Datos: "Données", Desarrollo: "Développement", Gestión: "Gestion", Idiomas: "Langues", Otros: "Autres" },
+  pt: { all: "Todos", Datos: "Dados", Desarrollo: "Desenvolvimento", Gestión: "Gestão", Idiomas: "Idiomas", Otros: "Outros" },
+};
+
 export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
   const c = copy[locale];
   const navigation = navigationKeys.map(([key, href]) => ({ label: c.nav[key], href }));
-  const [activeFilter, setActiveFilter] = useState<(typeof certificateFilters)[number]>("Todos");
+  const [activeFilter, setActiveFilter] = useState<(typeof certificateFilters)[number]>("all");
   const [menuOpen, setMenuOpen] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
 
   const filteredCertificates = useMemo(
     () =>
-      activeFilter === "Todos"
+      activeFilter === "all"
         ? certificates
         : certificates.filter((certificate) => certificate.category === activeFilter),
     [activeFilter],
@@ -101,12 +109,12 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
         ? { "Customer Churn Data Pipeline": "1 mi de registros", "Global ISO Security": "93 controles · 5 papéis", "FC Barcelona Player Performance ML": "4 modelos comparados", "Laptop Price Statistical Analysis": "4 notebooks" }
         : {};
   const displayedCertificates =
-    activeFilter === "Todos" && !showAllCertificates
+    activeFilter === "all" && !showAllCertificates
       ? filteredCertificates.filter((certificate) => certificate.priority)
       : filteredCertificates;
 
   return (
-    <main>
+    <main lang={locale}>
       <a className="skip-link" href="#contenido">
         {c.ui.skip}
       </a>
@@ -129,16 +137,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
             ))}
           </nav>
 
-          <details className="language-switcher">
-            <summary aria-label={c.ui.language}>🌐 {localeMeta[locale].short}</summary>
-            <div className="language-menu">
-              {Object.entries(localeMeta).map(([code, item]) => (
-                <a key={code} href={item.path} aria-current={code === locale ? "page" : undefined}>
-                  {item.label}{code === locale ? " ✓" : ""}
-                </a>
-              ))}
-            </div>
-          </details>
+          <LanguageSwitcher locale={locale} />
 
           <a className="header-cta" href={profile.cv} download>
             <Download size={16} aria-hidden="true" />
@@ -168,11 +167,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               {c.ui.downloadCv}
               <Download size={16} aria-hidden="true" />
             </a>
-            <div className="mobile-languages" aria-label={c.ui.language}>
-              {Object.entries(localeMeta).map(([code, item]) => (
-                <a key={code} href={item.path} aria-current={code === locale ? "page" : undefined}>{item.short}</a>
-              ))}
-            </div>
+            <LanguageSwitcher locale={locale} mobile />
           </nav>
         )}
       </header>
@@ -202,16 +197,16 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               </div>
               <div className="hero-proof" aria-label={c.hero.goal}>
                 <div>
-                  <strong>8</strong>
-                  <span>{c.hero.publicProjects}</span>
+                  <strong>1 M</strong>
+                  <span>{c.hero.metricRecords}</span>
                 </div>
                 <div>
-                  <strong>15</strong>
-                  <span>{c.hero.credentials}</span>
+                  <strong>PySpark + AWS</strong>
+                  <span>{c.hero.metricPipeline}</span>
                 </div>
                 <div>
                   <strong>B2</strong>
-                  <span>{c.hero.english}</span>
+                  <span>{c.hero.metricEnglish}</span>
                 </div>
               </div>
             </div>
@@ -226,7 +221,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                 <div className="portrait-frame">
                   <Image
                     src="/images/andres-obando.png"
-                    alt="Retrato profesional de Andrés Obando"
+                    alt={c.ui.portraitAlt}
                     width={480}
                     height={480}
                     priority
@@ -246,16 +241,16 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               </div>
               <div className="floating-note note-bottom">
                 <CheckCircle2 size={17} aria-hidden="true" />
-                9.º semestre
+                {c.hero.semester}
               </div>
             </div>
           </div>
 
           <div className="career-strip shell" aria-label={c.hero.goal}>
             <div><span>{c.hero.goal}</span><strong>Data Engineering</strong></div>
-            <div><span>{c.hero.availabilityLabel}</span><strong>November 2026</strong></div>
+            <div><span>{c.hero.availabilityLabel}</span><strong>{c.hero.availability}</strong></div>
             <div><span>{c.hero.mode}</span><strong>{c.hero.location}</strong></div>
-            <div><span>{c.hero.english}</span><strong>B2 certified</strong></div>
+            <div><span>{c.hero.english}</span><strong>B2</strong></div>
           </div>
         </section>
 
@@ -308,7 +303,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                     <span>{pc.focus}</span><strong>{metric}</strong>
                   </div>
                   <div className="project-topline">
-                    <span>Proyecto {String(index + 1).padStart(2, "0")}</span>
+                    <span>{c.projects.project} {String(index + 1).padStart(2, "0")}</span>
                     <span>{pc.focus}</span>
                   </div>
                   <div className="project-copy">
@@ -431,7 +426,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                   onClick={() => setActiveFilter(filter)}
                   aria-pressed={activeFilter === filter}
                 >
-                  {filter}
+                  {certificateFilterLabels[locale][filter]}
                 </button>
               ))}
             </div>
@@ -480,7 +475,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               ))}
             </div>
 
-            {activeFilter === "Todos" && certificates.length > displayedCertificates.length && (
+            {activeFilter === "all" && certificates.length > displayedCertificates.length && (
               <div className="certificate-more">
                 <p>{c.certificates.selected}</p>
                 <button type="button" className="button button-secondary" onClick={() => setShowAllCertificates(true)}>
@@ -489,7 +484,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                 </button>
               </div>
             )}
-            {activeFilter === "Todos" && showAllCertificates && (
+            {activeFilter === "all" && showAllCertificates && (
               <div className="certificate-more">
                 <p>{c.certificates.full}</p>
                 <button type="button" className="button button-secondary" onClick={() => setShowAllCertificates(false)}>
