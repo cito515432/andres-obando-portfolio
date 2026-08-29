@@ -2,7 +2,7 @@ name: Validate static portfolio
 
 on:
   push:
-    branches: [main, portfolio-international-case-studies]
+    branches: [main, portfolio-international-case-studies, portfolio-final-10-10-polish]
   pull_request:
     branches: [main]
 
