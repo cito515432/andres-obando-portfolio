@@ -3,6 +3,7 @@ import { profile } from "@/data/portfolio";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://andres-obando-portfolio-static.onrender.com"),
   title: "Andrés Obando | Data Engineering & Systems Engineering",
   description:
     "Portafolio profesional de Andrés Obando, estudiante de Ingeniería de Sistemas orientado a Data Engineering: Python, SQL, PySpark, Java, cloud, ETL y proyectos técnicos.",
