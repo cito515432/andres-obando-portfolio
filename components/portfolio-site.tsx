@@ -93,6 +93,13 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
 
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
+  const localizedMetrics: Record<string, string> = locale === "en"
+    ? { "Customer Churn Data Pipeline": "1M records", "Global ISO Security": "93 controls · 5 roles", "FC Barcelona Player Performance ML": "4 models compared", "Laptop Price Statistical Analysis": "4 notebooks" }
+    : locale === "fr"
+      ? { "Customer Churn Data Pipeline": "1 M de lignes", "Global ISO Security": "93 contrôles · 5 rôles", "FC Barcelona Player Performance ML": "4 modèles comparés", "Laptop Price Statistical Analysis": "4 notebooks" }
+      : locale === "pt"
+        ? { "Customer Churn Data Pipeline": "1 mi de registros", "Global ISO Security": "93 controles · 5 papéis", "FC Barcelona Player Performance ML": "4 modelos comparados", "Laptop Price Statistical Analysis": "4 notebooks" }
+        : {};
   const displayedCertificates =
     activeFilter === "Todos" && !showAllCertificates
       ? filteredCertificates.filter((certificate) => certificate.priority)
@@ -294,11 +301,11 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
             </div>
 
             <div className="projects-grid">
-              {featuredProjects.map((project, index) => { const pc = c.projectCopy[project.name] ?? { description: project.description, focus: project.focus, proof: project.proof, metric: project.metric }; return (
+              {featuredProjects.map((project, index) => { const pc = c.projectCopy[project.name] ?? { description: project.description, focus: project.focus, proof: project.proof, metric: project.metric }; const metric = localizedMetrics[project.name] ?? pc.metric ?? project.metric; return (
                 <article className={`project-card ${index < 2 ? "project-card-large" : ""}`} key={project.name}>
                   <div className={`project-visual project-visual-${project.kind}`}>
                     <div className="project-visual-icon"><ProjectMark kind={project.kind} /></div>
-                    <span>{pc.focus}</span><strong>{pc.metric ?? project.metric}</strong>
+                    <span>{pc.focus}</span><strong>{metric}</strong>
                   </div>
                   <div className="project-topline">
                     <span>Proyecto {String(index + 1).padStart(2, "0")}</span>
