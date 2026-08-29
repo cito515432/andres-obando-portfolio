@@ -1,12 +1,22 @@
 services:
   - type: web
-    name: andres-obando-portfolio
-    runtime: node
-    plan: free
+    name: andres-obando-portfolio-static
+    runtime: static
+    repo: https://github.com/cito515432/andres-obando-portfolio
+    branch: static-render-optimization
     buildCommand: npm install --no-audit --no-fund && npm run build
-    startCommand: npm start
-    healthCheckPath: /
+    staticPublishPath: ./out
     autoDeployTrigger: commit
-    envVars:
-      - key: NODE_VERSION
-        value: 22.13.0
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /documents/*
+        name: Content-Disposition
+        value: attachment
