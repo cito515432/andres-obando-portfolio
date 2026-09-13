@@ -1,26 +1,20 @@
-"use client";
-
-import { useMemo, useState, type SVGProps } from "react";
+import type { SVGProps } from "react";
 import Image from "next/image";
 import {
   ArrowDown,
   ArrowUpRight,
   Award,
-  BarChart3,
   BriefcaseBusiness,
   CheckCircle2,
   Code2,
   Database,
   Download,
-  ExternalLink,
   FileText,
   GraduationCap,
   Mail,
   MapPin,
-  Menu,
   ShieldCheck,
   Sparkles,
-  X,
 } from "lucide-react";
 import {
   certificates,
@@ -28,16 +22,15 @@ import {
   profile,
   projects,
   skillGroups,
-  type Certificate,
-  type Project,
 } from "@/data/portfolio";
 import { copy, localeMeta, type Locale } from "@/data/i18n";
+import { SiteHeader } from "@/components/site-header";
+import { CertificateGallery } from "@/components/certificate-gallery";
+import { ProjectEvidencePreview } from "@/components/project-evidence";
+import { localizeDate, localizeMetric, localizeSkill } from "@/data/format";
+import { skillEvidence } from "@/data/project-evidence";
+import { evidenceUi } from "@/data/evidence-ui";
 import { LanguageSwitcher } from "@/components/language-switcher";
-
-const navigationKeys = [
-  ["profile", "#perfil"], ["projects", "#proyectos"], ["experience", "#experiencia"],
-  ["skills", "#habilidades"], ["certificates", "#certificados"], ["contact", "#contacto"],
-] as const;
 
 type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
@@ -58,65 +51,8 @@ function LinkedinIcon({ size = 24, ...props }: BrandIconProps) {
 }
 
 
-function ProjectMark({ kind }: { kind: Project["kind"] }) {
-  const iconProps = { size: 27, strokeWidth: 1.8, "aria-hidden": true } as const;
-
-  if (kind === "data") return <Database {...iconProps} />;
-  if (kind === "security") return <ShieldCheck {...iconProps} />;
-  if (kind === "analytics") return <BarChart3 {...iconProps} />;
-  if (kind === "ml") return <Sparkles {...iconProps} />;
-  return <Code2 {...iconProps} />;
-}
-
-const certificateFilters: Array<"all" | Certificate["category"]> = [
-  "all",
-  "Datos",
-  "Desarrollo",
-  "Gestión",
-  "Idiomas",
-  "Otros",
-];
-
-const certificateFilterLabels: Record<Locale, Record<typeof certificateFilters[number], string>> = {
-  es: { all: "Todos", Datos: "Datos", Desarrollo: "Desarrollo", Gestión: "Gestión", Idiomas: "Idiomas", Otros: "Otros" },
-  en: { all: "All", Datos: "Data", Desarrollo: "Development", Gestión: "Management", Idiomas: "Languages", Otros: "Other" },
-  fr: { all: "Tous", Datos: "Données", Desarrollo: "Développement", Gestión: "Gestion", Idiomas: "Langues", Otros: "Autres" },
-  pt: { all: "Todos", Datos: "Dados", Desarrollo: "Desenvolvimento", Gestión: "Gestão", Idiomas: "Idiomas", Otros: "Outros" },
-};
-
-const localizeDate = (value: string, locale: Locale) => {
-  if (locale === "es") return value;
-  const months: Record<Locale, Record<string, string>> = {
-    es: {}, en: { "Ene.": "Jan.", "Feb.": "Feb.", "Mar.": "Mar.", "Abr.": "Apr.", "Jun.": "Jun.", "Jul.": "Jul.", "Ago.": "Aug.", "Sep.": "Sep.", "Oct.": "Oct.", "Nov.": "Nov.", "Dic.": "Dec.", actualidad: "present", horas: "hours" }, fr: { "Ene.": "janv.", "Feb.": "févr.", "Mar.": "mars", "Abr.": "avr.", "Jun.": "juin", "Jul.": "juil.", "Ago.": "août", "Sep.": "sept.", "Oct.": "oct.", "Nov.": "nov.", "Dic.": "déc.", actualidad: "aujourd’hui", horas: "heures" }, pt: { "Ene.": "jan.", "Feb.": "fev.", "Mar.": "mar.", "Abr.": "abr.", "Jun.": "jun.", "Jul.": "jul.", "Ago.": "ago.", "Sep.": "set.", "Oct.": "out.", "Nov.": "nov.", "Dic.": "dez.", actualidad: "atual", horas: "horas" },
-  };
-  return Object.entries(months[locale]).reduce((text, [from, to]) => text.replaceAll(from, to), value);
-};
-
-const localizeMetric = (value: string, locale: Locale) => {
-  const translations: Record<Locale, Record<string, string>> = { es: {}, en: { "Proyecto inicial": "Initial project", "Progresión académica": "Academic progression" }, fr: { "Proyecto inicial": "Projet initial", "Progresión académica": "Progression académique" }, pt: { "Proyecto inicial": "Projeto inicial", "Progresión académica": "Progressão acadêmica" } };
-  return translations[locale][value] ?? value;
-};
-
-const localizeSkill = (value: string, locale: Locale) => {
-  const translations: Record<Locale, Record<string, string>> = { es: {}, en: { "Análisis de datos": "Data analysis", Liderazgo: "Leadership", Docencia: "Teaching", Comunicación: "Communication", "Gestión de proyectos": "Project management" }, fr: { "Análisis de datos": "Analyse de données", Liderazgo: "Leadership", Docencia: "Enseignement", Comunicación: "Communication", "Gestión de proyectos": "Gestion de projet" }, pt: { "Análisis de datos": "Análise de dados", Liderazgo: "Liderança", Docencia: "Ensino", Comunicación: "Comunicação", "Gestión de proyectos": "Gestão de projetos" } };
-  return translations[locale][value] ?? value;
-};
-
 export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
   const c = copy[locale];
-  const navigation = navigationKeys.map(([key, href]) => ({ label: c.nav[key], href }));
-  const [activeFilter, setActiveFilter] = useState<(typeof certificateFilters)[number]>("all");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showAllCertificates, setShowAllCertificates] = useState(false);
-
-  const filteredCertificates = useMemo(
-    () =>
-      activeFilter === "all"
-        ? certificates
-        : certificates.filter((certificate) => certificate.category === activeFilter),
-    [activeFilter],
-  );
-
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
   const localizedMetrics: Record<string, string> = locale === "en"
@@ -126,71 +62,15 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
       : locale === "pt"
         ? { "Customer Churn Data Pipeline": "1 mi de registros", "Global ISO Security": "93 controles · 5 papéis", "FC Barcelona Player Performance ML": "4 modelos comparados", "Laptop Price Statistical Analysis": "4 notebooks" }
         : {};
-  const displayedCertificates =
-    activeFilter === "all" && !showAllCertificates
-      ? filteredCertificates.filter((certificate) => certificate.priority)
-      : filteredCertificates;
-
   return (
-    <main lang={locale}>
+    <>
       <a className="skip-link" href="#contenido">
         {c.ui.skip}
       </a>
 
-      <header className="site-header">
-        <div className="shell header-inner">
-          <a className="brand" href={`${localeMeta[locale].path}#inicio`} aria-label={c.ui.home}>
-            <span className="brand-mark">AO</span>
-            <span className="brand-copy">
-              <strong>Andrés Obando</strong>
-              <small>Data Engineering · Systems Engineering</small>
-            </span>
-          </a>
+      <SiteHeader locale={locale} />
 
-          <nav className="desktop-nav" aria-label={c.nav.projects}>
-            {navigation.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <LanguageSwitcher locale={locale} />
-
-          <a className="header-cta" href={profile.cv} download>
-            <Download size={16} aria-hidden="true" />
-            CV
-          </a>
-
-          <button
-            className="menu-button"
-            type="button"
-            aria-label={menuOpen ? c.ui.closeMenu : c.ui.openMenu}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-          </button>
-        </div>
-
-        {menuOpen && (
-          <nav className="mobile-nav" aria-label={c.ui.openMenu}>
-            {navigation.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                {item.label}
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-            ))}
-            <a href={profile.cv} download>
-              {c.ui.downloadCv}
-              <Download size={16} aria-hidden="true" />
-            </a>
-            <LanguageSwitcher locale={locale} mobile />
-          </nav>
-        )}
-      </header>
-
-      <div id="contenido">
+      <main id="contenido" lang={locale} tabIndex={-1}>
         <section className="hero" id="inicio">
           <div className="hero-grid shell">
               <div className="hero-copy reveal">
@@ -317,10 +197,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
             <div className="projects-grid">
               {featuredProjects.map((project, index) => { const pc = c.projectCopy[project.name] ?? { description: project.description, focus: project.focus, proof: project.proof, metric: project.metric }; const metric = localizedMetrics[project.name] ?? pc.metric ?? project.metric; return (
                 <article className={`project-card ${index < 2 ? "project-card-large" : ""}`} key={project.name}>
-                  <div className={`project-visual project-visual-${project.kind}`}>
-                    <div className="project-visual-icon"><ProjectMark kind={project.kind} /></div>
-                    <span>{pc.focus}</span><strong>{metric}</strong>
-                  </div>
+                  <ProjectEvidencePreview slug={project.url.split("/").pop()!} locale={locale} metric={metric} />
                   <div className="project-topline">
                     <span>{c.projects.project} {String(index + 1).padStart(2, "0")}</span>
                     <span>{pc.focus}</span>
@@ -345,7 +222,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                       <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   </div>
-                  <a className="study-link" href={`${localeMeta[locale].path}case-studies/${project.name === "Customer Churn Data Pipeline" ? "customer-churn-data-pipeline" : project.name === "Global ISO Security" ? "global-iso-security" : project.name === "FC Barcelona Player Performance ML" ? "fc-barcelona-player-performance-ml" : project.name === "Laptop Price Statistical Analysis" ? "laptop-price-statistical-analysis" : ""}`}>
+                  <a className="study-link" href={`${localeMeta[locale].path}case-studies/${project.url.split("/").pop()}/`}>
                     {c.ui.study}<ArrowUpRight size={16} aria-hidden="true" />
                   </a>
                 </article>
@@ -385,8 +262,9 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                     <time>{localizeDate(item.period, locale)}</time>
                     <div>
                       <h4>{c.experienceCopy[item.company]?.role ?? item.role}</h4>
-                      <p className="company">{item.company}</p>
+                      <p className="company">{item.company.replace("Remoto", evidenceUi[locale].remote)}</p>
                       <p>{c.experienceCopy[item.company]?.description ?? item.description}</p>
+                      <p className="experience-contribution"><strong>{c.ui.caseStudyLabels.contribution}: </strong>{c.experienceCopy[item.company]?.contribution}</p>
                     </div>
                   </article>
                 ))}
@@ -410,14 +288,14 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
             <div className="skills-intro">
               <p className="eyebrow">{c.experience.skillsEyebrow}</p>
               <h3>{c.experience.skillsTitle}</h3>
-              <p>{c.experience.skillsText}</p>
+              <p>{c.experience.skillsText}</p><p>{evidenceUi[locale].skillsHelp}</p>
             </div>
             {skillGroups.map((group) => (
               <div className="skill-group" key={group.title}>
                 <h4>{c.skillGroups[group.title] ?? group.title}</h4>
                 <ul>
                   {group.skills.map((skill) => (
-                    <li key={skill}>{localizeSkill(skill, locale)}</li>
+                    <li key={skill}>{skillEvidence[skill] ? <a href={`${localeMeta[locale].path}case-studies/${skillEvidence[skill].slug}/#evidence`} title={`${localizeSkill(skill, locale)} · ${skillEvidence[skill].project}`} aria-label={`${localizeSkill(skill, locale)} · ${evidenceUi[locale].usedIn} ${skillEvidence[skill].project}`}>{localizeSkill(skill, locale)}<ArrowUpRight size={12} aria-hidden="true" /></a> : localizeSkill(skill, locale)}</li>
                   ))}
                 </ul>
               </div>
@@ -436,81 +314,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               <Award className="heading-icon" aria-hidden="true" />
             </div>
 
-            <div className="certificate-filters" role="group" aria-label={c.certificates.filter}>
-              {certificateFilters.map((filter) => (
-                <button
-                  type="button"
-                  key={filter}
-                  className={activeFilter === filter ? "active" : ""}
-                  onClick={() => setActiveFilter(filter)}
-                  aria-pressed={activeFilter === filter}
-                >
-                  {certificateFilterLabels[locale][filter]}
-                </button>
-              ))}
-            </div>
-
-            <div className="certificates-grid" aria-live="polite">
-              {displayedCertificates.map((certificate) => (
-                <article className="certificate-card" key={certificate.title}>
-                  <a
-                    className="certificate-preview"
-                    href={certificate.image.replace(
-                      "/images/certificates/",
-                      "/images/certificates-full/",
-                    )}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${c.certificates.enlarge}: ${certificate.title}`}
-                  >
-                    <Image
-                      src={certificate.image}
-                      alt=""
-                      width={720}
-                      height={540}
-                    />
-                    <span>
-                      <ExternalLink size={17} aria-hidden="true" />
-                      {c.certificates.enlarge}
-                    </span>
-                  </a>
-                  <div className="certificate-copy">
-                    <div className="certificate-meta">
-                      <span>{certificateFilterLabels[locale][certificate.category]}</span>
-                    <time>{localizeDate(certificate.date, locale)}</time>
-                    </div>
-                    <h3>{certificate.title}</h3>
-                    <p>{certificate.issuer}</p>
-                    <div className="certificate-links">
-                      {certificate.documents.map((document) => (
-                        <a href={document.url} download key={document.url}>
-                          <FileText size={15} aria-hidden="true" />
-                          {locale === "en" ? (document.label === "Ver certificado" ? "View certificate" : document.label === "Certificado" ? "Certificate" : "Diploma") : locale === "fr" ? (document.label === "Ver certificado" ? "Voir le certificat" : document.label === "Certificado" ? "Certificat" : "Diplôme") : locale === "pt" ? (document.label === "Ver certificado" ? "Ver certificado" : document.label === "Certificado" ? "Certificado" : "Diploma") : document.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {activeFilter === "all" && certificates.length > displayedCertificates.length && (
-              <div className="certificate-more">
-                <p>{c.certificates.selected}</p>
-                <button type="button" className="button button-secondary" onClick={() => setShowAllCertificates(true)}>
-                  {c.certificates.all} ({certificates.length})
-                  <ArrowDown size={16} aria-hidden="true" />
-                </button>
-              </div>
-            )}
-            {activeFilter === "all" && showAllCertificates && (
-              <div className="certificate-more">
-                <p>{c.certificates.full}</p>
-                <button type="button" className="button button-secondary" onClick={() => setShowAllCertificates(false)}>
-                  {c.ui.showSelection}
-                </button>
-              </div>
-            )}
+            <CertificateGallery locale={locale} certificates={certificates} labels={c.certificates} showSelection={c.ui.showSelection} />
           </div>
         </section>
 
@@ -546,7 +350,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
             </div>
           </div>
         </section>
-      </div>
+      </main>
 
       <footer>
         <div className="shell footer-inner">
@@ -555,6 +359,6 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
           <a href={`${localeMeta[locale].path}#inicio`}>{c.footer.top}</a>
         </div>
       </footer>
-    </main>
+    </>
   );
 }
