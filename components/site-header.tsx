@@ -23,7 +23,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
   const navigation = navigationKeys.map(([key, href]) => ({ label: c.nav[key], href }));
   return (      <header className="site-header">
         <div className="shell header-inner">
-          <a className="brand" href={`${localeMeta[locale].path}#inicio`} aria-label={c.ui.home}>
+          <a className="brand" href={`${localeMeta[locale].path}#inicio`}>
             <span className="brand-mark">AO</span>
             <span className="brand-copy">
               <strong>Andrés Obando</strong>

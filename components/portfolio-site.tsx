@@ -239,7 +239,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                         <li key={technology}>{technology}</li>
                       ))}
                     </ul>
-                    <a href={project.url} target="_blank" rel="noreferrer" aria-label={`${c.projects.ariaGithub}: ${project.name}`}>
+                    <a href={project.url} target="_blank" rel="noreferrer" aria-label={`${c.ui.viewCode} · ${c.projects.ariaGithub}: ${project.name}`}>
                       <GithubIcon size={18} aria-hidden="true" />
                       {c.ui.viewCode}
                       <ArrowUpRight size={16} aria-hidden="true" />
@@ -351,7 +351,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               <a className="contact-email" href={`mailto:${profile.email}`}>
                 <Mail aria-hidden="true" />
                 <span>
-                  <small>{c.contact.email}</small>
+                  <small style={{ color: "#ffffff" }}>{c.contact.email}</small>
                   {profile.email}
                 </span>
                 <ArrowUpRight aria-hidden="true" />

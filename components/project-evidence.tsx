@@ -17,11 +17,12 @@ export function ProjectEvidencePreview({ slug, locale, metric }: { slug: string;
   const evidence = projectEvidence[slug];
   const item = evidence.images.find(image => image.src.endsWith(evidence.preview ?? "__none__"));
   const ui = evidenceUi[locale];
-  return <a className="project-evidence-preview" href={`${localeMeta[locale].path}case-studies/${slug}/#evidence`} data-analytics="project_evidence_open" data-project={slug} aria-label={`${ui.evidence}: ${slug.replaceAll("-", " ")}`}>
+  const visibleType = item ? ui[item.kind] : ui.code;
+  return <a className="project-evidence-preview" href={`${localeMeta[locale].path}case-studies/${slug}/#evidence`} data-analytics="project_evidence_open" data-project={slug} aria-label={`${visibleType} · ${metric} · ${ui.evidence}: ${slug.replaceAll("-", " ")}`}>
     <div className="evidence-preview-canvas">
       {item ? <Image src={item.src.endsWith('global-iso-soa-preview.webp') ? '/images/projects/global-iso-soa-preview-720.webp' : item.src} width={item.width} height={item.height} alt={item.caption[locale]} loading="lazy" decoding="async" /> : <ModelEvidence locale={locale} />}
     </div>
-    <div className="evidence-preview-caption"><span>{item ? ui[item.kind] : ui.code}</span><ArrowUpRight size={17} aria-hidden="true" /></div>
+    <div className="evidence-preview-caption"><span>{visibleType}</span><ArrowUpRight size={17} aria-hidden="true" /></div>
     <strong className="evidence-preview-metric">{metric}</strong>
   </a>;
 }
