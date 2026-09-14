@@ -34,6 +34,22 @@ import { LanguageSwitcher } from "@/components/language-switcher";
 
 type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
+const shortAvailability: Record<Locale, string> = {
+  es: "Nov. 2026",
+  en: "Nov. 2026",
+  fr: "nov. 2026",
+  pt: "nov. 2026",
+};
+
+const recordMetricLabel: Record<Locale, string> = {
+  es: "registros · pipeline PySpark",
+  en: "records · PySpark pipeline",
+  fr: "lignes · pipeline PySpark",
+  pt: "registros · pipeline PySpark",
+};
+
+const customerChurnTechnologies = ["PySpark", "S3", "EMR Serverless", "Glue", "Athena"];
+
 function GithubIcon({ size = 24, ...props }: BrandIconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -50,7 +66,6 @@ function LinkedinIcon({ size = 24, ...props }: BrandIconProps) {
   );
 }
 
-
 export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
   const c = copy[locale];
   const featuredProjects = projects.filter((project) => project.featured);
@@ -62,6 +77,10 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
       : locale === "pt"
         ? { "Customer Churn Data Pipeline": "1 mi de registros", "Global ISO Security": "93 controles · 5 papéis", "FC Barcelona Player Performance ML": "4 modelos comparados", "Laptop Price Statistical Analysis": "4 notebooks" }
         : {};
+  const contactText = locale === "es"
+    ? "Disponible para práctica profesional desde noviembre de 2026. Mi objetivo principal es Data Engineering; también considero Sistemas, Backend, Cloud / Data y Data Analytics según el alcance del rol, incluyendo equipos internacionales. Bogotá, modalidad híbrida o remota e inglés B2. Conversemos."
+    : c.contact.text;
+
   return (
     <>
       <a className="skip-link" href="#contenido">
@@ -73,7 +92,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
       <main id="contenido" lang={locale} tabIndex={-1}>
         <section className="hero" id="inicio">
           <div className="hero-grid shell">
-              <div className="hero-copy reveal">
+            <div className="hero-copy reveal">
               <LanguageSwitcher locale={locale} hero />
               <div className="availability">
                 <span aria-hidden="true" />
@@ -97,7 +116,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               <div className="hero-proof" aria-label={c.hero.goal}>
                 <div>
                   <strong>1 M</strong>
-                  <span>{c.hero.metricRecords}</span>
+                  <span>{recordMetricLabel[locale]}</span>
                 </div>
                 <div>
                   <strong>PySpark + AWS</strong>
@@ -114,7 +133,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
               <div className="portrait-orbit" aria-hidden="true">
                 <span>PYTHON</span>
                 <span>SQL</span>
-                <span>JAVA</span>
+                <span>PYSPARK</span>
               </div>
               <figure className="portrait-card">
                 <div className="portrait-frame">
@@ -147,7 +166,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
 
           <div className="career-strip shell" aria-label={c.hero.goal}>
             <div><span>{c.hero.goal}</span><strong>Data Engineering</strong></div>
-            <div><span>{c.hero.availabilityLabel}</span><strong>{c.hero.availability}</strong></div>
+            <div><span>{c.hero.availabilityLabel}</span><strong>{shortAvailability[locale]}</strong></div>
             <div><span>{c.hero.mode}</span><strong>{c.hero.location}</strong></div>
             <div><span>{c.hero.english}</span><strong>B2</strong></div>
           </div>
@@ -195,7 +214,11 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
             </div>
 
             <div className="projects-grid">
-              {featuredProjects.map((project, index) => { const pc = c.projectCopy[project.name] ?? { description: project.description, focus: project.focus, proof: project.proof, metric: project.metric }; const metric = localizedMetrics[project.name] ?? pc.metric ?? project.metric; return (
+              {featuredProjects.map((project, index) => {
+                const pc = c.projectCopy[project.name] ?? { description: project.description, focus: project.focus, proof: project.proof, metric: project.metric };
+                const metric = localizedMetrics[project.name] ?? pc.metric ?? project.metric;
+                const technologies = project.name === "Customer Churn Data Pipeline" ? customerChurnTechnologies : project.technologies;
+                return (
                 <article className={`project-card ${index < 2 ? "project-card-large" : ""}`} key={project.name}>
                   <ProjectEvidencePreview slug={project.url.split("/").pop()!} locale={locale} metric={metric} />
                   <div className="project-topline">
@@ -212,7 +235,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                   </div>
                   <div className="project-footer">
                     <ul aria-label={`${c.projects.ariaTech} ${project.name}`}>
-                      {project.technologies.map((technology) => (
+                      {technologies.map((technology) => (
                         <li key={technology}>{technology}</li>
                       ))}
                     </ul>
@@ -322,7 +345,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
           <div className="shell contact-card">
             <div>
               <p className="eyebrow">{c.contact.eyebrow}</p>
-              <h2>{c.contact.title}</h2><p>{c.contact.text}</p>
+              <h2>{c.contact.title}</h2><p>{contactText}</p>
             </div>
             <div className="contact-actions">
               <a className="contact-email" href={`mailto:${profile.email}`}>
