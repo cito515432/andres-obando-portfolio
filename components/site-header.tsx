@@ -24,7 +24,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             </span>
           </a>
 
-          <nav className="desktop-nav" aria-label={c.nav.projects}>
+          <nav className="desktop-nav" aria-label={c.ui.mainNavigation}>
             {navigation.map((item) => (
               <a key={item.href} href={item.href}>
                 {item.label}
@@ -40,7 +40,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             CV
           </a>
 
-          <MobileNavigation openLabel={c.ui.openMenu} closeLabel={c.ui.closeMenu}>
+          <MobileNavigation openLabel={c.ui.openMenu} closeLabel={c.ui.closeMenu} navigationLabel={c.ui.mainNavigation}>
             {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}<ArrowUpRight size={16} aria-hidden="true" /></a>)}
             <a href={profile.cv} download>{c.ui.downloadCv}<Download size={16} aria-hidden="true" /></a>
             <LanguageSwitcher locale={locale} mobile />
