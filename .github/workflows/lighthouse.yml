@@ -1,0 +1,47 @@
+name: Lighthouse portfolio audit
+
+on:
+  push:
+    branches: [final-recruiter-polish-2026]
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Run Lighthouse mobile
+        run: npx --yes lighthouse@13.4.1 https://andres-obando-portfolio-final-preview.onrender.com/ --output=json --output-path=./lighthouse-mobile.json --quiet --chrome-flags="--headless --no-sandbox"
+      - name: Run Lighthouse desktop
+        run: npx --yes lighthouse@13.4.1 https://andres-obando-portfolio-final-preview.onrender.com/ --preset=desktop --output=json --output-path=./lighthouse-desktop.json --quiet --chrome-flags="--headless --no-sandbox"
+      - name: Print Lighthouse summary
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          for (const name of ['mobile','desktop']) {
+            const r = JSON.parse(fs.readFileSync(`lighthouse-${name}.json`, 'utf8'));
+            const c = r.categories;
+            const a = r.audits;
+            const pct = key => Math.round(c[key].score * 100);
+            const ms = key => Math.round(a[key]?.numericValue || 0);
+            console.log(`LIGHTHOUSE ${name.toUpperCase()}`);
+            console.log(JSON.stringify({
+              performance: pct('performance'),
+              accessibility: pct('accessibility'),
+              bestPractices: pct('best-practices'),
+              seo: pct('seo'),
+              fcpMs: ms('first-contentful-paint'),
+              lcpMs: ms('largest-contentful-paint'),
+              tbtMs: ms('total-blocking-time'),
+              cls: a['cumulative-layout-shift']?.numericValue ?? null,
+              speedIndexMs: ms('speed-index')
+            }));
+          }
+          NODE
+      - uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-reports
+          path: lighthouse-*.json

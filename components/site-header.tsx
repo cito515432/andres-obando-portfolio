@@ -11,12 +11,19 @@ const navigationKeys = [
   ["skills", "#habilidades"], ["certificates", "#certificados"], ["contact", "#contacto"],
 ] as const;
 
+const mainNavigationLabel: Record<Locale, string> = {
+  es: "Navegación principal",
+  en: "Main navigation",
+  fr: "Navigation principale",
+  pt: "Navegação principal",
+};
+
 export function SiteHeader({ locale }: { locale: Locale }) {
   const c = copy[locale];
   const navigation = navigationKeys.map(([key, href]) => ({ label: c.nav[key], href }));
   return (      <header className="site-header">
         <div className="shell header-inner">
-          <a className="brand" href={`${localeMeta[locale].path}#inicio`} aria-label={c.ui.home}>
+          <a className="brand" href={`${localeMeta[locale].path}#inicio`}>
             <span className="brand-mark">AO</span>
             <span className="brand-copy">
               <strong>Andrés Obando</strong>
@@ -24,7 +31,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             </span>
           </a>
 
-          <nav className="desktop-nav" aria-label={c.nav.projects}>
+          <nav className="desktop-nav" aria-label={mainNavigationLabel[locale]}>
             {navigation.map((item) => (
               <a key={item.href} href={item.href}>
                 {item.label}
@@ -40,7 +47,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
             CV
           </a>
 
-          <MobileNavigation openLabel={c.ui.openMenu} closeLabel={c.ui.closeMenu}>
+          <MobileNavigation openLabel={c.ui.openMenu} closeLabel={c.ui.closeMenu} navigationLabel={mainNavigationLabel[locale]}>
             {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}<ArrowUpRight size={16} aria-hidden="true" /></a>)}
             <a href={profile.cv} download>{c.ui.downloadCv}<Download size={16} aria-hidden="true" /></a>
             <LanguageSwitcher locale={locale} mobile />

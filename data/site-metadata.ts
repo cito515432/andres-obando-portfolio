@@ -26,13 +26,17 @@ export const siteMetadata: Metadata = {
   creator: profile.name,
   category: "technology",
   robots: { index: true, follow: true },
-  alternates: { canonical: "/", languages: { es: "/", en: "/en/", fr: "/fr/", pt: "/pt/" } },
+  alternates: {
+    canonical: "/",
+    languages: { es: "/", en: "/en/", fr: "/fr/", pt: "/pt/", "x-default": "/" },
+  },
   openGraph: {
     title: "Andrés Obando | Data Engineering & Systems Engineering",
     description:
       "Proyectos de datos y software, experiencia, stack técnico, hoja de vida y credenciales verificables.",
     type: "profile",
     locale: "es_CO",
+    siteName: "Andrés Obando",
     firstName: "Andrés",
     lastName: "Obando",
   },

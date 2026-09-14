@@ -15,7 +15,7 @@ export function LanguageSwitcher({ locale, path = "", mobile = false, hero = fal
   </div>;
   const current = localeMeta[locale];
   return <details className={`language-switcher${mobile ? " mobile-language-switcher" : ""}`}>
-    <summary aria-label={copy[locale].ui.language}><Globe2 size={16} aria-hidden="true" /><span aria-hidden="true">{current.flag}</span> {current.short}<ChevronDown size={15} aria-hidden="true" /></summary>
+    <summary aria-label={`${copy[locale].ui.language}: ${current.short}`}><Globe2 size={16} aria-hidden="true" /><span aria-hidden="true">{current.flag}</span> {current.short}<ChevronDown size={15} aria-hidden="true" /></summary>
     <div className="language-menu">{links}</div>
   </details>;
 }
