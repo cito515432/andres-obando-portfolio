@@ -1,0 +1,80 @@
+[
+  {
+    "repository": "customer-churn-data-pipeline",
+    "commit": "d1505aa25fb887590d7ac2151017d1bcfcdac9fb",
+    "sourcePath": "docs/images/pipeline-architecture.svg",
+    "sourceUrl": "https://github.com/cito515432/customer-churn-data-pipeline/blob/d1505aa25fb887590d7ac2151017d1bcfcdac9fb/docs/images/pipeline-architecture.svg",
+    "sourceSha256": "827013708423c2f34e63df20fb699f8e07b963b1d2c3be6a69152659c13d71bd",
+    "asset": "/images/projects/pipeline-architecture.svg",
+    "assetSha256": "827013708423c2f34e63df20fb699f8e07b963b1d2c3be6a69152659c13d71bd",
+    "sourceBytes": 2555,
+    "assetBytes": 2555
+  },
+  {
+    "repository": "global-iso-security",
+    "commit": "4cf9580e792bb2750ff2788d154b184e3910fd2a",
+    "sourcePath": "docs/images/global-iso-architecture.png",
+    "sourceUrl": "https://github.com/cito515432/global-iso-security/blob/4cf9580e792bb2750ff2788d154b184e3910fd2a/docs/images/global-iso-architecture.png",
+    "sourceSha256": "e933716da18d884ddb6527c7b88d02708494b9d6cd028c7a3e5ecc2112af8239",
+    "asset": "/images/projects/global-iso-architecture.webp",
+    "assetSha256": "773704287284cfa1e4f54d0fae1a137c3be22c09d2526ed63f210704c1d75fde",
+    "sourceBytes": 343237,
+    "assetBytes": 221044
+  },
+  {
+    "repository": "global-iso-security",
+    "commit": "4cf9580e792bb2750ff2788d154b184e3910fd2a",
+    "sourcePath": "docs/images/global-iso-rpm-ml-preview.png",
+    "sourceUrl": "https://github.com/cito515432/global-iso-security/blob/4cf9580e792bb2750ff2788d154b184e3910fd2a/docs/images/global-iso-rpm-ml-preview.png",
+    "sourceSha256": "3d4b1067e844a4bcbcbb8861780f43614dc7ed28e1ae54c579dec7002bc32640",
+    "asset": "/images/projects/global-iso-rpm-ml-preview.webp",
+    "assetSha256": "1c04bb89c3b60ed844d94dc05086bef3551bd92334f90fc6af444456cb64b961",
+    "sourceBytes": 345406,
+    "assetBytes": 236882
+  },
+  {
+    "repository": "global-iso-security",
+    "commit": "4cf9580e792bb2750ff2788d154b184e3910fd2a",
+    "sourcePath": "docs/images/global-iso-soa-preview.png",
+    "sourceUrl": "https://github.com/cito515432/global-iso-security/blob/4cf9580e792bb2750ff2788d154b184e3910fd2a/docs/images/global-iso-soa-preview.png",
+    "sourceSha256": "3546a161d85f6ae17f34fa0b81150ba008cdec7df301a751a53e4f17cf0b7343",
+    "asset": "/images/projects/global-iso-soa-preview.webp",
+    "assetSha256": "a8cc80b831d8e2d8ab861dcc1b0c1e702805e72086c9af2c1a97131e2ee742c2",
+    "sourceBytes": 394433,
+    "assetBytes": 278318
+  },
+  {
+    "repository": "laptop-price-statistical-analysis",
+    "commit": "5434616d7650f33fd457f1a68c5ef078602ad5e1",
+    "sourcePath": "docs/images/price-boxplot.png",
+    "sourceUrl": "https://github.com/cito515432/laptop-price-statistical-analysis/blob/5434616d7650f33fd457f1a68c5ef078602ad5e1/docs/images/price-boxplot.png",
+    "sourceSha256": "7fdebd7eb3e3aefc0c3f9f18e8c6a81154b914498994e38abdd947baf218589a",
+    "asset": "/images/projects/price-boxplot.webp",
+    "assetSha256": "908471463c957bc68b1fc95c5fe9be35018228410840bda6c81452de2ad60b23",
+    "sourceBytes": 20915,
+    "assetBytes": 3772
+  },
+  {
+    "repository": "laptop-price-statistical-analysis",
+    "commit": "5434616d7650f33fd457f1a68c5ef078602ad5e1",
+    "sourcePath": "docs/images/price-distribution.png",
+    "sourceUrl": "https://github.com/cito515432/laptop-price-statistical-analysis/blob/5434616d7650f33fd457f1a68c5ef078602ad5e1/docs/images/price-distribution.png",
+    "sourceSha256": "1d620edd846caf845b3a2231b096d9817258ec09caf58050b502d220eea0d95f",
+    "asset": "/images/projects/price-distribution.webp",
+    "assetSha256": "781d67b68cc0cb7d67ad4e4595370553da8e2aa1d49d32605d0bfb37c07d7472",
+    "sourceBytes": 27510,
+    "assetBytes": 10042
+  },
+  {
+    "repository": "global-iso-security",
+    "commit": "4cf9580e792bb2750ff2788d154b184e3910fd2a",
+    "sourcePath": "docs/images/global-iso-soa-preview.png",
+    "sourceUrl": "https://github.com/cito515432/global-iso-security/blob/4cf9580e792bb2750ff2788d154b184e3910fd2a/docs/images/global-iso-soa-preview.png",
+    "sourceSha256": "3546a161d85f6ae17f34fa0b81150ba008cdec7df301a751a53e4f17cf0b7343",
+    "asset": "/images/projects/global-iso-soa-preview-720.webp",
+    "assetSha256": "e15d6c43d85685252f895380163d0896190624707e3cf7920165a15011e22472",
+    "sourceBytes": 394433,
+    "assetBytes": 29374,
+    "transformation": "720 px Lanczos thumbnail; WebP quality 90; original full-resolution evidence remains available"
+  }
+]

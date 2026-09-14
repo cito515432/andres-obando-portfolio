@@ -54,10 +54,10 @@ export const projects: Project[] = [
     description:
       "Plataforma web multiempresa para gestionar la SoA de ISO/IEC 27001, riesgos, evidencias, auditoría y formación con un motor RPM explicable.",
     url: "https://github.com/cito515432/global-iso-security",
-    technologies: ["Java", "Spring Boot", "MySQL", "Docker", "ISO 27001"],
+    technologies: ["Java", "Spring Boot", "TiDB", "FastAPI", "Render"],
     metric: "93 controles · 5 roles",
     focus: "Systems Engineering",
-    proof: "Arquitectura funcional con gestión de controles, riesgos, evidencias y flujos diferenciados por rol.",
+    proof: "Arquitectura Spring Boot / TiDB / FastAPI con RPM determinista, ML experimental y validación humana.",
     kind: "security",
     featured: true,
   },
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     technologies: ["Python", "pandas", "Statistics", "Jupyter"],
     metric: "4 notebooks",
     focus: "Data Analytics",
-    proof: "Exploración, visualización y modelado estadístico documentados en notebooks reproducibles.",
+    proof: "Cuatro notebooks y gráficos originales conservados; la ejecución completa requiere un dataset no incluido.",
     kind: "analytics",
     featured: true,
   },
@@ -165,7 +165,7 @@ export const experience = [
 export const skillGroups = [
   {
     title: "Datos",
-    skills: ["Python", "SQL", "PySpark", "ETL", "pandas", "Análisis de datos", "Business Intelligence"],
+    skills: ["Python", "SQL", "PySpark", "ETL", "pandas", "Machine Learning", "Análisis de datos", "Business Intelligence"],
   },
   {
     title: "Software",
@@ -173,7 +173,7 @@ export const skillGroups = [
   },
   {
     title: "Plataformas",
-    skills: ["AWS", "Azure", "MySQL", "Docker", "Streamlit", "Jupyter", "Excel"],
+    skills: ["AWS", "Azure", "MySQL", "TiDB", "FastAPI", "Render", "Docker", "Streamlit", "Jupyter", "Excel"],
   },
   {
     title: "Trabajo",

@@ -2,7 +2,7 @@ name: Validate static portfolio
 
 on:
   push:
-    branches: [main, portfolio-international-case-studies, portfolio-final-10-10-polish]
+    branches: [main, portfolio-international-case-studies, portfolio-final-10-10-polish, portfolio-evidence-theme-polish-2026]
   pull_request:
     branches: [main]
 
@@ -18,6 +18,4 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
-      - run: test -f out/index.html
-      - run: test -f out/en/index.html && test -f out/fr/index.html && test -f out/pt/index.html
-      - run: test -f out/en/case-studies/customer-churn-data-pipeline/index.html && test -f out/fr/case-studies/customer-churn-data-pipeline/index.html && test -f out/pt/case-studies/customer-churn-data-pipeline/index.html
+      - run: npm test

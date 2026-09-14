@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
             opacity: 0.5,
           }}
         />
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", zIndex: 1 }}>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 24, fontWeight: 700 }}>
             <div
               style={{
