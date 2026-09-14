@@ -12,12 +12,22 @@ export function generateMetadata({ params }: { params: Promise<{ locale: string 
     if (!locales.includes(value as Locale) || value === "es") return {};
     const locale = value as Locale;
     const c = copy[locale];
+    const title = `Andrés Obando | ${locale === "fr" ? "Data Engineering & Ingénierie des systèmes" : locale === "pt" ? "Data Engineering & Engenharia de Sistemas" : "Data Engineering & Systems Engineering"}`;
     return {
-      title: `Andrés Obando | ${locale === "fr" ? "Data Engineering et systèmes" : locale === "pt" ? "Data Engineering e Sistemas" : "Data Engineering & Systems Engineering"}`,
+      title,
       description: c.hero.lead,
-      alternates: { canonical: localeMeta[locale].path, languages: { es: "/", en: "/en/", fr: "/fr/", pt: "/pt/" } },
-      openGraph: { locale: locale === "fr" ? "fr_FR" : locale === "pt" ? "pt_BR" : "en_US", title: c.hero.title, description: c.hero.lead },
-      twitter: { title: c.hero.title, description: c.hero.lead },
+      alternates: {
+        canonical: localeMeta[locale].path,
+        languages: { es: "/", en: "/en/", fr: "/fr/", pt: "/pt/", "x-default": "/" },
+      },
+      openGraph: {
+        locale: locale === "fr" ? "fr_FR" : locale === "pt" ? "pt_BR" : "en_US",
+        title,
+        description: c.hero.lead,
+        type: "profile",
+        siteName: "Andrés Obando",
+      },
+      twitter: { card: "summary_large_image", title, description: c.hero.lead },
     };
   });
 }
