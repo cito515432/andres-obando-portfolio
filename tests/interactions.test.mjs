@@ -38,7 +38,7 @@ test('interactive components work with real DOM events (no browser rendering)',a
   const {CertificateGallery}=loadTs('components/certificate-gallery.tsx');
   const {NavigationInteractions}=loadTs('components/navigation-interactions.tsx');
   const {Analytics}=loadTs('components/analytics.tsx');
-  const {copy}=loadTs('data/i18n.ts');const {certificates}=loadTs('data/portfolio.ts');
+  const {copy}=loadTs('data/i18n.ts');const {certificates}=loadTs('data/portfolio.ts');const {externalCredentials}=loadTs('data/external-credentials.ts');
   const root=createRoot(document.getElementById('app'));
   const click=element=>React.act(()=>element.dispatchEvent(new window.MouseEvent('click',{bubbles:true})));
   await t.test('manual theme persists and overrides later system changes',async()=>{
@@ -65,10 +65,16 @@ test('interactive components work with real DOM events (no browser rendering)',a
     assert.equal(menu.hidden,true);assert.equal(document.activeElement,button);
     await click(button);await click(menu.querySelector('a'));assert.equal(menu.hidden,true);
   });
-  await t.test('credential filters and full selection retain all document links',async()=>{
+  await t.test('credential filters include the AWS Credly credential and retain all document links',async()=>{
     await React.act(()=>root.render(React.createElement(CertificateGallery,{locale:'es',certificates,labels:copy.es.certificates,showSelection:copy.es.ui.showSelection})));
-    assert.equal(document.querySelectorAll('.certificate-card').length,certificates.filter(c=>c.priority).length);
-    await click(document.querySelector('.certificate-more button'));assert.equal(document.querySelectorAll('.certificate-card').length,15);
+    assert.equal(document.querySelectorAll('.certificate-card').length,6);
+    assert.ok([...document.querySelectorAll('.certificate-card h3')].some(node=>node.textContent.includes('AWS')));
+    await click(document.querySelector('.certificate-more button'));assert.equal(document.querySelectorAll('.certificate-card').length,certificates.length+externalCredentials.length);
+    await click([...document.querySelectorAll('.certificate-filters button')].find(b=>b.textContent==='Cloud'));
+    assert.equal(document.querySelectorAll('.certificate-card').length,1);
+    const credly=document.querySelector('.certificate-links a');
+    assert.match(credly.getAttribute('href'),/credly\.com\/badges\/443b29bd/);
+    assert.equal(credly.getAttribute('target'),'_blank');
     await click([...document.querySelectorAll('.certificate-filters button')].find(b=>b.textContent==='Idiomas'));
     assert.equal(document.querySelectorAll('.certificate-card').length,1);
     assert.match(document.querySelector('.certificate-links a').getAttribute('href'),/ingles-b2/);
