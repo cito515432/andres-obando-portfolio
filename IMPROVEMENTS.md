@@ -1,37 +1,48 @@
-# Portfolio 10/10 — ajustes realizados
+# Portfolio profesional — estado y mejoras realizadas
 
-Esta versión prioriza claridad para reclutadores de Data Engineering e Ingeniería de Sistemas.
+Esta versión prioriza claridad para reclutadores de Data Engineering, Systems Engineering, Backend y Cloud, sin sacrificar trazabilidad técnica ni accesibilidad.
 
 ## Cambios principales
 
-- Hero reescrito con foco explícito en Data Engineering, stack y disponibilidad desde noviembre de 2026.
-- Resumen rápido para reclutadores: objetivo, disponibilidad, modalidad e inglés B2.
+- Hero con foco explícito en Data Engineering, stack, disponibilidad desde noviembre de 2026 e inglés B2.
+- Métrica de 1 M contextualizada como evidencia de un pipeline académico con PySpark.
 - Marca personal unificada como “Data Engineering · Systems Engineering”.
-- Customer Churn Data Pipeline pasa a ser el proyecto principal del portafolio.
-- Solo cuatro proyectos aparecen como destacados; los demás quedan como evidencia adicional en GitHub.
-- Tarjetas de proyecto incorporan foco, métrica y evidencia de lo que demuestra cada trabajo.
-- Sección de habilidades renombrada como “Stack con evidencia”.
-- Certificados curados: la vista inicial muestra solo los más relevantes y permite expandir las 15 credenciales.
-- Contacto reescrito con un CTA orientado a prácticas profesionales.
-- SEO mejorado con metadata, Twitter/Open Graph y datos estructurados Schema.org.
-- Imagen social Open Graph generada por Next.js.
-- Arquitectura simplificada: se retiró el scaffold no utilizado de Vinext/Cloudflare/Drizzle/shadcn.
-- El proyecto queda como Next.js estándar, más fácil de mantener y desplegar en Render.
-- Configuración de Render actualizada para despliegue automático.
-- Accesibilidad reforzada con foco visible, navegación por anclas y preferencia de movimiento reducido.
-- README reconstruido para que el propio repositorio también funcione como pieza de portafolio.
+- Customer Churn Data Pipeline como proyecto principal, con servicios AWS concretos y arquitectura verificable.
+- Cuatro proyectos destacados con evidencia real; los proyectos secundarios quedan como soporte adicional en GitHub.
+- Casos de estudio escaneables con problema, arquitectura, decisiones, resultados, evidencia, limitaciones y fuentes.
+- Global ISO Security actualizado a Spring Boot, TiDB Cloud, FastAPI, RPM determinista, ML experimental, validación humana y memoria RPM.
+- Evidencia técnica trazable a commits y hashes mediante `docs/evidence-provenance.json`.
+- Modo claro/oscuro accesible, con preferencia del sistema, persistencia manual y bootstrap previo al primer paint.
+- Componentes interactivos separados del contenido estático: header, navegación móvil, tema, certificados y analítica.
+- Stack con enlaces a proyectos que demuestran el uso de tecnologías concretas.
+- Certificados curados para priorizar datos, bases de datos, BI, inglés y desarrollo; títulos oficiales conservados con traducción de apoyo en idiomas internacionales.
+- Contacto orientado a prácticas profesionales y equipos internacionales.
+- SEO con canonical, hreflang, `x-default`, sitemap, robots, Schema.org y metadata localizada.
+- Tarjeta social principal neutral para funcionar correctamente en ES/EN/FR/PT y tarjetas propias por caso de estudio.
+- Configuración de Render Static Site con despliegue automático desde `main`.
+- Accesibilidad reforzada con skip link, foco visible, navegación semántica, objetivos táctiles, `aria-current` y `prefers-reduced-motion`.
+- README preparado para que el repositorio también funcione como pieza de portafolio.
 
-## Evolución internacional
+## Validación automatizada
 
-- Rutas estáticas `/`, `/en/`, `/fr/` y `/pt/` con componentes compartidos y traducciones locales.
-- Casos de estudio verificables para Customer Churn, Global ISO Security, FC Barcelona Player Performance ML y Laptop Price Statistical Analysis.
-- Sitemap, robots, canonical, hreflang y metadata localizada.
-- Workflow gratuito de GitHub Actions para validar instalación, lint, Static Export y `out/index.html`.
-- Analítica opcional preparada mediante `NEXT_PUBLIC_GA_ID`, desactivada por defecto.
+La rama de evidencia y temas se validó con:
 
-### Pendientes honestos
+- `npm ci`
+- `npm run lint`
+- `npm run build`
+- TypeScript
+- Static Export de 26 páginas
+- 16 casos de estudio localizados
+- 20 rutas principales ES/EN/FR/PT
+- 38 pruebas automatizadas
+- GitHub Actions
 
-- Medir Lighthouse/Core Web Vitals en un navegador de producción; el proyecto no afirma resultados no medidos.
-- Separar más contenido estático de `PortfolioSite` para reducir JavaScript del cliente en una iteración posterior; actualmente el estado se limita a menú, filtros y selector de idioma para preservar estabilidad.
-- Incorporar métricas finales de Barcelona y el dataset autorizado de Laptop Price únicamente cuando estén disponibles.
-- Evaluar orquestación, data quality, cargas incrementales, dbt, particionamiento y data warehouse como mejoras futuras, no como experiencia actual.
+Las pruebas cubren contraste, preferencia claro/oscuro, almacenamiento bloqueado, persistencia manual, menú móvil, retorno de foco, selector de idioma, filtros de certificados, rutas estáticas y analítica desactivada sin configuración.
+
+## Pendientes honestos
+
+- Medir Lighthouse y Core Web Vitals reales en producción; el proyecto no afirma puntuaciones no medidas.
+- Incorporar métricas finales verificables del proyecto FC Barcelona solo cuando el repositorio fuente las publique de forma estable.
+- Publicar un dataset o muestra autorizada del proyecto Laptop Price antes de afirmar tamaños, coeficientes o reproducibilidad completa.
+- Evaluar mejoras futuras de Data Engineering —orquestación, data quality, cargas incrementales, dbt, particionamiento y data warehouse— únicamente cuando existan implementaciones reales que puedan demostrarse.
+- Mantener dependencias y GitHub Actions actualizadas mediante rondas de mantenimiento controladas y validadas por CI.
