@@ -48,14 +48,14 @@ export default function OpenGraphImage() {
             >
               AO
             </div>
-            ANDRÉS OBANDO
+            PROFESSIONAL PORTFOLIO
           </div>
-          <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
-            <div style={{ fontSize: 24, color: "#d76242", fontWeight: 700, marginBottom: 18 }}>
-              DATA ENGINEERING · SYSTEMS ENGINEERING
+          <div style={{ display: "flex", flexDirection: "column", maxWidth: 940 }}>
+            <div style={{ fontSize: 76, lineHeight: 1, fontWeight: 700, letterSpacing: -3 }}>
+              Andrés Obando
             </div>
-            <div style={{ fontSize: 72, lineHeight: 1.02, fontWeight: 700, letterSpacing: -3 }}>
-              Datos, software y soluciones que se pueden mantener.
+            <div style={{ marginTop: 24, fontSize: 32, color: "#d76242", fontWeight: 700 }}>
+              Data Engineering · Systems Engineering
             </div>
           </div>
           <div style={{ display: "flex", gap: 28, fontSize: 22, color: "#42524b" }}>
