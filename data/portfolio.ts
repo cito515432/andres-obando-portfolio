@@ -32,7 +32,7 @@ export const profile = {
   city: "Bogotá, Colombia",
   email: "andresobba@gmail.com",
   github: "https://github.com/cito515432",
-  linkedin: "https://www.linkedin.com/in/andres-obando-08095b203",
+  linkedin: "https://www.linkedin.com/in/andr%C3%A9s-obando-08095b203/",
   cv: "/documents/cv/cv-andres-obando-publico.pdf",
 };
 
