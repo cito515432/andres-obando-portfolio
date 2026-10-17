@@ -31,6 +31,7 @@ export type Copy = {
     projects: string;
     experience: string;
     skills: string;
+    recognitions: string;
     certificates: string;
     contact: string;
   };
@@ -119,6 +120,18 @@ export type Copy = {
     all: string;
     full: string;
   };
+  recognitions: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    awardLabel: string;
+    openImage: string;
+    viewDocument: string;
+    items: Record<
+      "data-science-monitor" | "kodland-tutor",
+      { title: string; description: string }
+    >;
+  };
   contact: {
     eyebrow: string;
     title: string;
@@ -140,6 +153,7 @@ export const copy: Record<Locale, Copy> = {
       projects: "Proyectos",
       experience: "Experiencia",
       skills: "Habilidades",
+      recognitions: "Premios",
       certificates: "Certificados",
       contact: "Contacto",
     },
@@ -239,8 +253,29 @@ export const copy: Record<Locale, Copy> = {
       skillsText:
         "Herramientas utilizadas en proyectos, formación y experiencia. Cada enlace permite revisar una aplicación concreta.",
     },
+    recognitions: {
+      eyebrow: "04 · Reconocimientos y premios",
+      title: "Logros que reconocen mi impacto académico y docente.",
+      intro:
+        "Distinciones recibidas por el compromiso, la enseñanza y el aporte a comunidades de aprendizaje.",
+      awardLabel: "Reconocimiento",
+      openImage: "Ampliar reconocimiento",
+      viewDocument: "Ver documento",
+      items: {
+        "data-science-monitor": {
+          title: "Distinción por monitoría en Fundamentos de Ciencias de Datos",
+          description:
+            "Reconocimiento de la Universidad de San Buenaventura por mi labor como monitor y apoyo académico en la asignatura.",
+        },
+        "kodland-tutor": {
+          title: "Reconocimiento por desempeño como tutor",
+          description:
+            "Otorgado por Kodland International por demostrar buen desempeño, esfuerzo y buena actitud como tutor.",
+        },
+      },
+    },
     certificates: {
-      eyebrow: "04 · Aprendizaje continuo",
+      eyebrow: "05 · Aprendizaje continuo",
       title: "Certificados y credenciales verificables.",
       intro:
         "Una selección relevante para datos, desarrollo, cloud, metodologías e idiomas.",
@@ -252,7 +287,7 @@ export const copy: Record<Locale, Copy> = {
       full: "Vista completa de credenciales.",
     },
     contact: {
-      eyebrow: "05 · Contacto",
+      eyebrow: "06 · Contacto",
       title: "Busco un equipo donde los datos tengan impacto real.",
       text: "Disponible para práctica profesional desde noviembre de 2026. Mi objetivo principal es Data Engineering; también considero Sistemas, Backend, Cloud / Data y Data Analytics según el alcance del rol. Bogotá, modalidad híbrida o remota e inglés B2. Conversemos.",
       email: "Correo",
@@ -369,6 +404,7 @@ export const copy: Record<Locale, Copy> = {
       projects: "Projects",
       experience: "Experience",
       skills: "Skills",
+      recognitions: "Awards",
       certificates: "Credentials",
       contact: "Contact",
     },
@@ -468,8 +504,29 @@ export const copy: Record<Locale, Copy> = {
       skillsText:
         "Tools used in projects, education and practical experience. Each link shows a concrete application.",
     },
+    recognitions: {
+      eyebrow: "04 · Awards and recognition",
+      title: "Achievements that recognize my academic and teaching impact.",
+      intro:
+        "Distinctions received for commitment, teaching and contributions to learning communities.",
+      awardLabel: "Recognition",
+      openImage: "Open full recognition",
+      viewDocument: "View document",
+      items: {
+        "data-science-monitor": {
+          title: "Recognition for a Data Science Fundamentals teaching assistantship",
+          description:
+            "Recognition from Universidad de San Buenaventura for my work as a teaching assistant and academic support in the course.",
+        },
+        "kodland-tutor": {
+          title: "Recognition for tutor performance",
+          description:
+            "Awarded by Kodland International for strong performance, effort and a positive attitude as a tutor.",
+        },
+      },
+    },
     certificates: {
-      eyebrow: "04 · Continuous learning",
+      eyebrow: "05 · Continuous learning",
       title: "Verifiable credentials.",
       intro:
         "A relevant selection across data, software, cloud, methods and languages.",
@@ -480,7 +537,7 @@ export const copy: Record<Locale, Copy> = {
       full: "Full credentials view.",
     },
     contact: {
-      eyebrow: "05 · Contact",
+      eyebrow: "06 · Contact",
       title: "I am looking for a team where data creates real impact.",
       text: "Available for an internship from November 2026, primarily in Data Engineering. Also open to Systems Engineering, Backend, Cloud / Data and relevant Data Analytics roles, including international teams and internship programs. Based in Bogotá; hybrid or remote. English B2. Let’s talk.",
       email: "Email",
@@ -597,6 +654,7 @@ export const copy: Record<Locale, Copy> = {
       projects: "Projets",
       experience: "Expérience",
       skills: "Compétences",
+      recognitions: "Distinctions",
       certificates: "Certificats",
       contact: "Contact",
     },
@@ -697,8 +755,29 @@ export const copy: Record<Locale, Copy> = {
       skillsText:
         "Outils utilisés dans mes projets, ma formation et mon expérience. Chaque lien permet d’en vérifier une application concrète.",
     },
+    recognitions: {
+      eyebrow: "04 · Prix et distinctions",
+      title: "Des réussites qui reconnaissent mon impact académique et pédagogique.",
+      intro:
+        "Distinctions reçues pour mon engagement, mon enseignement et ma contribution aux communautés d’apprentissage.",
+      awardLabel: "Distinction",
+      openImage: "Agrandir la distinction",
+      viewDocument: "Voir le document",
+      items: {
+        "data-science-monitor": {
+          title: "Distinction pour le monitorat en Fondements de la science des données",
+          description:
+            "Distinction de l’Universidad de San Buenaventura pour mon travail de moniteur et mon soutien académique dans ce cours.",
+        },
+        "kodland-tutor": {
+          title: "Distinction pour la performance comme tuteur",
+          description:
+            "Décernée par Kodland International pour la qualité du travail, les efforts et l’attitude positive démontrés comme tuteur.",
+        },
+      },
+    },
     certificates: {
-      eyebrow: "04 · Formation continue",
+      eyebrow: "05 · Formation continue",
       title: "Certificats vérifiables.",
       intro:
         "Une sélection pertinente en données, développement, cloud, méthodes et langues.",
@@ -709,7 +788,7 @@ export const copy: Record<Locale, Copy> = {
       full: "Collection complète de certificats.",
     },
     contact: {
-      eyebrow: "05 · Contact",
+      eyebrow: "06 · Contact",
       title: "Je cherche une équipe où les données ont un impact réel.",
       text: "Disponible pour un stage dès novembre 2026, principalement en Data Engineering. Ouvert aussi aux rôles systèmes, backend, Cloud / Data et Data Analytics selon les missions, ainsi qu’aux équipes internationales. Basé à Bogotá ; hybride ou à distance. Anglais B2.",
       email: "E-mail",
@@ -827,6 +906,7 @@ export const copy: Record<Locale, Copy> = {
       projects: "Projetos",
       experience: "Experiência",
       skills: "Competências",
+      recognitions: "Prêmios",
       certificates: "Certificados",
       contact: "Contato",
     },
@@ -926,8 +1006,29 @@ export const copy: Record<Locale, Copy> = {
       skillsText:
         "Ferramentas usadas em projetos, formação e experiência. Cada link mostra uma aplicação concreta.",
     },
+    recognitions: {
+      eyebrow: "04 · Reconhecimentos e prêmios",
+      title: "Conquistas que reconhecem meu impacto acadêmico e docente.",
+      intro:
+        "Distinções recebidas pelo compromisso, ensino e contribuição às comunidades de aprendizagem.",
+      awardLabel: "Reconhecimento",
+      openImage: "Ampliar reconhecimento",
+      viewDocument: "Ver documento",
+      items: {
+        "data-science-monitor": {
+          title: "Distinção pela monitoria em Fundamentos de Ciência de Dados",
+          description:
+            "Reconhecimento da Universidad de San Buenaventura pelo meu trabalho como monitor e apoio acadêmico na disciplina.",
+        },
+        "kodland-tutor": {
+          title: "Reconhecimento pelo desempenho como tutor",
+          description:
+            "Concedido pela Kodland International pelo bom desempenho, esforço e atitude positiva demonstrados como tutor.",
+        },
+      },
+    },
     certificates: {
-      eyebrow: "04 · Aprendizado contínuo",
+      eyebrow: "05 · Aprendizado contínuo",
       title: "Certificados verificáveis.",
       intro:
         "Uma seleção relevante em dados, desenvolvimento, cloud, métodos e idiomas.",
@@ -939,7 +1040,7 @@ export const copy: Record<Locale, Copy> = {
       full: "Coleção completa de certificados.",
     },
     contact: {
-      eyebrow: "05 · Contato",
+      eyebrow: "06 · Contato",
       title: "Procuro uma equipe onde os dados gerem impacto real.",
       text: "Disponível para estágio a partir de novembro de 2026, com foco em Data Engineering. Também considero Sistemas, Backend, Cloud / Data e Data Analytics conforme o escopo, incluindo equipes internacionais. Bogotá; híbrido ou remoto. Inglês B2. Vamos conversar.",
       email: "E-mail",

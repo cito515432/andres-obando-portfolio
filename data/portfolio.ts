@@ -25,6 +25,15 @@ export type Certificate = {
   priority?: boolean;
 };
 
+export type Recognition = {
+  id: "data-science-monitor" | "kodland-tutor";
+  issuer: string;
+  date?: string;
+  image: string;
+  fullImage: string;
+  document?: string;
+};
+
 export const profile = {
   name: "Andrés Felipe Obando Barriga",
   shortName: "Andrés Obando",
@@ -181,18 +190,24 @@ export const skillGroups = [
   },
 ];
 
-export const certificates: Certificate[] = [
+export const recognitions: Recognition[] = [
   {
-    title: "Distinción por monitoría en Fundamentos de Ciencias de Datos",
-    priority: true,
+    id: "data-science-monitor",
     issuer: "Universidad de San Buenaventura",
     date: "Oct. 2026",
-    category: "Datos",
     image: "/images/certificates/distincion-monitor-ciencias-datos-usb.jpg",
-    documents: [
-      { label: "Ver certificado", url: "/documents/certificates/distincion-monitor-ciencias-datos-usb.pdf" },
-    ],
+    fullImage: "/images/certificates-full/distincion-monitor-ciencias-datos-usb.jpg",
+    document: "/documents/certificates/distincion-monitor-ciencias-datos-usb.pdf",
   },
+  {
+    id: "kodland-tutor",
+    issuer: "Kodland International",
+    image: "/images/recognitions/kodland-tutor-recognition.webp",
+    fullImage: "/images/recognitions/full/kodland-tutor-recognition.webp",
+  },
+];
+
+export const certificates: Certificate[] = [
   {
     title: "Google: Inteligencia Artificial y productividad",
     priority: true,

@@ -14,11 +14,11 @@ const localizedProjectSentinels={
   fr:['Pipeline de bout en bout','Professeur de programmation'],
   pt:['Pipeline de ponta a ponta','Professor de programação'],
 };
-const localizedCertificateSentinels={
-  es:'Distinción por monitoría en Fundamentos de Ciencias de Datos',
-  en:'Recognition for a Data Science Fundamentals teaching assistantship',
-  fr:'Distinction pour le monitorat en Fondements de la science des données',
-  pt:'Distinção pela monitoria em Fundamentos de Ciência de Dados',
+const localizedRecognitionSentinels={
+  es:['Distinción por monitoría en Fundamentos de Ciencias de Datos','Reconocimiento por desempeño como tutor'],
+  en:['Recognition for a Data Science Fundamentals teaching assistantship','Recognition for tutor performance'],
+  fr:['Distinction pour le monitorat en Fondements de la science des données','Distinction pour la performance comme tuteur'],
+  pt:['Distinção pela monitoria em Fundamentos de Ciência de Dados','Reconhecimento pelo desempenho como tutor'],
 };
 for (const [locale,prefix]of Object.entries(prefixes)) {
   for (const slug of ['',...caseStudies.map(s=>s.slug)]) {
@@ -43,7 +43,9 @@ for (const [locale,prefix]of Object.entries(prefixes)) {
         assert.equal(d.querySelectorAll('.project-card').length,4);
         assert.ok(d.body.textContent.includes(copy[locale].hero.availability));
         for(const sentinel of localizedProjectSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} copy: ${sentinel}`);
-        assert.ok(d.body.textContent.includes(localizedCertificateSentinels[locale]),`${route}: missing ${locale} certificate title`);
+        assert.equal(d.querySelectorAll('#reconocimientos .recognition-card').length,2);
+        for(const sentinel of localizedRecognitionSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} recognition: ${sentinel}`);
+        assert.ok(!d.querySelector('#certificados').textContent.includes(localizedRecognitionSentinels[locale][0]),`${route}: recognition duplicated in credentials`);
         assert.equal(d.querySelectorAll('.project-evidence-preview').length,4);
       }
       for(const a of d.querySelectorAll('a[href]')){
