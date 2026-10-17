@@ -15,12 +15,14 @@ import {
   MapPin,
   ShieldCheck,
   Sparkles,
+  Trophy,
 } from "lucide-react";
 import {
   certificates,
   experience,
   profile,
   projects,
+  recognitions,
   skillGroups,
 } from "@/data/portfolio";
 import { copy, localeMeta, type Locale } from "@/data/i18n";
@@ -31,6 +33,7 @@ import { localizeDate, localizeMetric, localizeSkill } from "@/data/format";
 import { skillEvidence } from "@/data/project-evidence";
 import { evidenceUi } from "@/data/evidence-ui";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { RecognitionGallery } from "@/components/recognition-gallery";
 
 type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
@@ -323,6 +326,21 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                 </ul>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="recognitions-section section" id="reconocimientos">
+          <div className="shell">
+            <div className="section-heading wide-heading recognitions-heading">
+              <div>
+                <p className="eyebrow">{c.recognitions.eyebrow}</p>
+                <h2>{c.recognitions.title}</h2>
+                <p>{c.recognitions.intro}</p>
+              </div>
+              <Trophy className="heading-icon" aria-hidden="true" />
+            </div>
+
+            <RecognitionGallery locale={locale} recognitions={recognitions} labels={c.recognitions} />
           </div>
         </section>
 

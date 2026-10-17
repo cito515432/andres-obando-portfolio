@@ -25,6 +25,15 @@ export type Certificate = {
   priority?: boolean;
 };
 
+export type Recognition = {
+  id: "data-science-monitor" | "kodland-tutor";
+  issuer: string;
+  date?: string;
+  image: string;
+  fullImage: string;
+  document?: string;
+};
+
 export const profile = {
   name: "Andrés Felipe Obando Barriga",
   shortName: "Andrés Obando",
@@ -178,6 +187,23 @@ export const skillGroups = [
   {
     title: "Trabajo",
     skills: ["Scrum", "Liderazgo", "Docencia", "Comunicación", "Gestión de proyectos"],
+  },
+];
+
+export const recognitions: Recognition[] = [
+  {
+    id: "data-science-monitor",
+    issuer: "Universidad de San Buenaventura",
+    date: "Oct. 2026",
+    image: "/images/certificates/distincion-monitor-ciencias-datos-usb.jpg",
+    fullImage: "/images/certificates-full/distincion-monitor-ciencias-datos-usb.jpg",
+    document: "/documents/certificates/distincion-monitor-ciencias-datos-usb.pdf",
+  },
+  {
+    id: "kodland-tutor",
+    issuer: "Kodland International",
+    image: "/images/recognitions/kodland-tutor-recognition.webp",
+    fullImage: "/images/recognitions/full/kodland-tutor-recognition.webp",
   },
 ];
 

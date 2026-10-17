@@ -8,7 +8,8 @@ import { ThemeSwitcher } from "./theme-switcher";
 
 const navigationKeys = [
   ["profile", "#perfil"], ["projects", "#proyectos"], ["experience", "#experiencia"],
-  ["skills", "#habilidades"], ["certificates", "#certificados"], ["contact", "#contacto"],
+  ["skills", "#habilidades"], ["recognitions", "#reconocimientos"],
+  ["certificates", "#certificados"], ["contact", "#contacto"],
 ] as const;
 
 const mainNavigationLabel: Record<Locale, string> = {
