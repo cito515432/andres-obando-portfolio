@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="color-scheme" content="dark light" />
-<meta name="theme-color" content="#0c1217" />
+<meta name="theme-color" content="#164e54" />
 <title>VICTORIA · Panel gerencial | Prototipo</title>
 <style>
 :root{--bg:#0b1117;--side:#0e151d;--card:#141e27;--card2:#19242d;--border:#283641;--text:#eef3ef;--muted:#93a2ab;--soft:#657883;--gold:#d5b67c;--gold2:#f3d6a1;--green:#78cda4;--red:#eb9291;--blue:#88adf4;--pur:#c4a4e9;--shadow:0 20px 62px rgba(0,0,0,.13);--overlay:rgba(6,12,18,.7)}
@@ -19,7 +19,7 @@
 @media (min-width:1141px){.menu-toggle{display:none!important}}
 @media (max-height:935px) and (min-width:1141px){.side-status{display:none}}
 @media print{.sidebar,.topbar,.heading-actions,.btn,.bottom-note,.modal-backdrop,.toast-area,.sidebar-overlay,.nav-section{display:none!important}.workspace{margin:0;width:100%}.main{padding:10px;color:#14222a}.panel,.market-shell{box-shadow:none;break-inside:avoid}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}body{background:#fff;color:#172329}.panel{border-color:#ddd}.kpi{min-height:unset}}
-</style>
+.brand-title{font-family:'Times New Roman',Georgia,serif;font-weight:400;letter-spacing:4.3px;color:#dec88b}.brand-sub{font-weight:500;letter-spacing:1.1px;color:#dec88b;font-size:8px}.victoria-emblem{background:transparent;border:0;border-radius:0;width:49px;height:56px}.victoria-emblem svg{width:48px;height:54px}.sidebar{background:#103c42}.brand{padding-left:7px;padding-right:4px}.nav-item.active{background:rgba(222,200,139,.13)}.hero,.hero-banner{background-color:#164e54}body.light .sidebar{background:#164e54}body.light .sidebar .nav-item{color:#d5e4df}body.light .sidebar .nav-item.active{color:#e9d79f}body.light .sidebar .brand-sub{color:#dec88b}@media(max-width:420px){.brand-title{font-size:19px;letter-spacing:3px}.brand-sub{font-size:7px}}</style>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -57,7 +57,7 @@
 <div class="app">
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
-    <div class="brand"><div class="brand-mark"><svg class="icon xl"><use href="#i-gem"></use></svg></div><div><div class="brand-title">VICTORIA</div><div class="brand-sub">JOYERÍA · GESTIÓN</div></div></div>
+    <div class="brand"><div class="brand-mark victoria-emblem"><svg viewBox="0 0 240 225" aria-label="Emblema Victoria" role="img" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#dec88b" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M82 192 25 86 82 27 120 65 158 27 215 86 158 192"/><path d="M120 223 62 86 120 27 178 86 120 223"/><path d="M120 223 100 86 120 65 140 86 120 223"/></g><g fill="#dec88b"><path d="M120 4 122 14 132 16 122 18 120 28 118 18 108 16 118 14Z"/><path d="M98 2 100 9 107 11 100 13 98 20 96 13 89 11 96 9Z"/><path d="M142 2 144 9 151 11 144 13 142 20 140 13 133 11 140 9Z"/></g></svg></div><div><div class="brand-title">VICTORIA</div><div class="brand-sub">GOLDEN GROUP · JEWELRY</div></div></div>
     <div class="nav-section">GENERAL</div>
     <button class="nav-item active" data-page="dashboard"><svg class="icon"><use href="#i-grid"/></svg> Panel gerencial</button>
     <div class="nav-section">OPERACIONES</div>
