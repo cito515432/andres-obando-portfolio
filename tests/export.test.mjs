@@ -14,6 +14,12 @@ const localizedProjectSentinels={
   fr:['Pipeline de bout en bout','Professeur de programmation'],
   pt:['Pipeline de ponta a ponta','Professor de programação'],
 };
+const localizedCertificateSentinels={
+  es:'Distinción por monitoría en Fundamentos de Ciencias de Datos',
+  en:'Recognition for a Data Science Fundamentals teaching assistantship',
+  fr:'Distinction pour le monitorat en Fondements de la science des données',
+  pt:'Distinção pela monitoria em Fundamentos de Ciência de Dados',
+};
 for (const [locale,prefix]of Object.entries(prefixes)) {
   for (const slug of ['',...caseStudies.map(s=>s.slug)]) {
     const route=prefix+(slug?'case-studies/'+slug+'/':'');
@@ -37,6 +43,7 @@ for (const [locale,prefix]of Object.entries(prefixes)) {
         assert.equal(d.querySelectorAll('.project-card').length,4);
         assert.ok(d.body.textContent.includes(copy[locale].hero.availability));
         for(const sentinel of localizedProjectSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} copy: ${sentinel}`);
+        assert.ok(d.body.textContent.includes(localizedCertificateSentinels[locale]),`${route}: missing ${locale} certificate title`);
         assert.equal(d.querySelectorAll('.project-evidence-preview').length,4);
       }
       for(const a of d.querySelectorAll('a[href]')){

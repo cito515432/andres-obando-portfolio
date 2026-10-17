@@ -183,6 +183,17 @@ export const skillGroups = [
 
 export const certificates: Certificate[] = [
   {
+    title: "Distinción por monitoría en Fundamentos de Ciencias de Datos",
+    priority: true,
+    issuer: "Universidad de San Buenaventura",
+    date: "Oct. 2026",
+    category: "Datos",
+    image: "/images/certificates/distincion-monitor-ciencias-datos-usb.jpg",
+    documents: [
+      { label: "Ver certificado", url: "/documents/certificates/distincion-monitor-ciencias-datos-usb.pdf" },
+    ],
+  },
+  {
     title: "Google: Inteligencia Artificial y productividad",
     priority: true,
     issuer: "Google · Santander Open Academy",

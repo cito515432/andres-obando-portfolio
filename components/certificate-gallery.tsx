@@ -32,6 +32,7 @@ const certificateFilterLabels: Record<Locale, Record<(typeof certificateFilters)
 };
 
 const selectedPriorityOrder = [
+  "Distinción por monitoría en Fundamentos de Ciencias de Datos",
   "Fundamentos profesionales del análisis de datos",
   "Bases de datos: generalidades y sistemas de gestión",
   "Credencial digital de AWS · Credly",
@@ -42,6 +43,11 @@ const selectedPriorityOrder = [
 ];
 
 const certificateTitleTranslations: Record<string, Partial<Record<Locale, string>>> = {
+  "Distinción por monitoría en Fundamentos de Ciencias de Datos": {
+    en: "Recognition for a Data Science Fundamentals teaching assistantship",
+    fr: "Distinction pour le monitorat en Fondements de la science des données",
+    pt: "Distinção pela monitoria em Fundamentos de Ciência de Dados",
+  },
   "Credencial digital de AWS · Credly": {
     en: "AWS Digital Credential · Credly",
     fr: "Badge numérique AWS · Credly",
