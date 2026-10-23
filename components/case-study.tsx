@@ -24,7 +24,7 @@ export function CaseStudyPage({ study, locale }: { study: CaseStudy; locale: Loc
         <h1>{study.projectName}</h1>
         <p className="study-deck">{c.title}</p>
         <p className="study-summary">{c.summary}</p>
-        <div className="study-highlights"><span>{e.academic}</span>{caseStudyHighlights[study.slug][locale].map(item => <span key={item}>{item}</span>)}</div>
+        <div className="study-highlights"><span>{study.kind === "professional" ? c.label : e.academic}</span>{caseStudyHighlights[study.slug][locale].map(item => <span key={item}>{item}</span>)}</div>
         <nav className="study-nav" aria-label={ui.study}>
           {[['overview',e.overview],['architecture',e.architecture],['results',e.results],['evidence',e.evidence]].map(([id,label])=><a key={id} href={`#${id}`}>{label}</a>)}
         </nav>
@@ -55,7 +55,7 @@ export function CaseStudyPage({ study, locale }: { study: CaseStudy; locale: Loc
         <details className="study-details"><summary>{e.details}</summary><div className="study-grid">
           {detailKeys.map(key=><section key={key}><h2>{ui.caseStudyLabels[key]}</h2><p>{c[key]}</p></section>)}
         </div></details>
-        <a className="button button-primary" href={study.repo} target="_blank" rel="noreferrer">{ui.viewCode} ↗</a>
+        {study.repo && <a className="button button-primary" href={study.repo} target="_blank" rel="noreferrer">{ui.viewCode} ↗</a>}
       </div>
     </main>
   </>;

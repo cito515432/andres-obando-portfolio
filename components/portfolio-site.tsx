@@ -221,9 +221,10 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                 const pc = c.projectCopy[project.name] ?? { description: project.description, focus: project.focus, proof: project.proof, metric: project.metric };
                 const metric = localizedMetrics[project.name] ?? pc.metric ?? project.metric;
                 const technologies = project.name === "Customer Churn Data Pipeline" ? customerChurnTechnologies : project.technologies;
+                const slug = project.slug ?? project.url?.split("/").pop() ?? "";
                 return (
                 <article className={`project-card ${index < 2 ? "project-card-large" : ""}`} key={project.name}>
-                  <ProjectEvidencePreview slug={project.url.split("/").pop()!} locale={locale} metric={metric} />
+                  <ProjectEvidencePreview slug={slug} locale={locale} metric={metric} />
                   <div className="project-topline">
                     <span>{c.projects.project} {String(index + 1).padStart(2, "0")}</span>
                     <span>{pc.focus}</span>
@@ -242,13 +243,13 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
                         <li key={technology}>{technology}</li>
                       ))}
                     </ul>
-                    <a href={project.url} target="_blank" rel="noreferrer" aria-label={`${c.ui.viewCode} · ${c.projects.ariaGithub}: ${project.name}`}>
+                    {project.url && <a href={project.url} target="_blank" rel="noreferrer" aria-label={`${c.ui.viewCode} · ${c.projects.ariaGithub}: ${project.name}`}>
                       <GithubIcon size={18} aria-hidden="true" />
                       {c.ui.viewCode}
                       <ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
+                    </a>}
                   </div>
-                  <a className="study-link" href={`${localeMeta[locale].path}case-studies/${project.url.split("/").pop()}/`}>
+                  <a className="study-link" href={`${localeMeta[locale].path}case-studies/${slug}/`}>
                     {c.ui.study}<ArrowUpRight size={16} aria-hidden="true" />
                   </a>
                 </article>

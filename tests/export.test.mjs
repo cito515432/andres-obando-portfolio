@@ -9,10 +9,10 @@ const {copy}=loadTs('data/i18n.ts');
 const site='https://andres-obando-portfolio-static.onrender.com';
 const prefixes={es:'/',en:'/en/',fr:'/fr/',pt:'/pt/'};
 const localizedProjectSentinels={
-  es:['Pipeline end-to-end','Profesor de programación de software'],
-  en:['End-to-end pipeline','Software Programming Instructor'],
-  fr:['Pipeline de bout en bout','Professeur de programmation'],
-  pt:['Pipeline de ponta a ponta','Professor de programação'],
+  es:['Pipeline end-to-end','Profesor de programación de software','Plataforma web en desarrollo para una operación joyera'],
+  en:['End-to-end pipeline','Software Programming Instructor','Web platform in development for multi-location jewelry operations'],
+  fr:['Pipeline de bout en bout','Professeur de programmation','Plateforme web en développement pour une bijouterie multisite'],
+  pt:['Pipeline de ponta a ponta','Professor de programação','Plataforma web em desenvolvimento para uma operação joalheira'],
 };
 const localizedRecognitionSentinels={
   es:['Distinción por monitoría en Fundamentos de Ciencias de Datos','Reconocimiento por desempeño como tutor'],
@@ -40,13 +40,13 @@ for (const [locale,prefix]of Object.entries(prefixes)) {
         assert.equal(d.querySelector('meta[name="twitter:card"]').content,'summary_large_image');
         assert.equal(d.querySelector('meta[property="og:url"]').content,site+route);
       } else {
-        assert.equal(d.querySelectorAll('.project-card').length,4);
+        assert.equal(d.querySelectorAll('.project-card').length,5);
         assert.ok(d.body.textContent.includes(copy[locale].hero.availability));
         for(const sentinel of localizedProjectSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} copy: ${sentinel}`);
         assert.equal(d.querySelectorAll('#reconocimientos .recognition-card').length,2);
         for(const sentinel of localizedRecognitionSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} recognition: ${sentinel}`);
         assert.ok(!d.querySelector('#certificados').textContent.includes(localizedRecognitionSentinels[locale][0]),`${route}: recognition duplicated in credentials`);
-        assert.equal(d.querySelectorAll('.project-evidence-preview').length,4);
+        assert.equal(d.querySelectorAll('.project-evidence-preview').length,5);
       }
       for(const a of d.querySelectorAll('a[href]')){
         const u=new URL(a.href);if(u.origin!==site)continue;
