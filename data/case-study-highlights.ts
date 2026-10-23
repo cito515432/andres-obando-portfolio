@@ -85,22 +85,22 @@ export const caseStudyHighlights: Record<string, Record<Locale, string[]>> = {
       "4 notebooks"
     ]
   },
-    "jewelry-management-system": {
-      "es": [
-        "En desarrollo · validación previa a producción",
-        "POS · ingreso de joyas · inventario · cartera · caja y bancos"
-      ],
-      "en": [
-        "In development · pre-production validation",
-        "POS · jewelry intake · inventory · receivables · cash and banks"
-      ],
-      "fr": [
-        "En développement · validation préproduction",
-        "POS · entrée des bijoux · stocks · créances · caisse et banques"
-      ],
-      "pt": [
-        "Em desenvolvimento · validação pré-produção",
-        "POS · entrada de joias · estoque · contas a receber · caixa e bancos"
-      ]
-    }
+  "jewelry-management-system": {
+    "es": [
+      "En desarrollo · validación previa a producción",
+      "POS · ingreso de joyas · inventario · cartera · caja y bancos"
+    ],
+    "en": [
+      "In development · pre-production validation",
+      "POS · jewelry intake · inventory · receivables · cash and banks"
+    ],
+    "fr": [
+      "En développement · validation préproduction",
+      "POS · entrée des bijoux · stocks · créances · caisse et banques"
+    ],
+    "pt": [
+      "Em desenvolvimento · validação pré-produção",
+      "POS · entrada de joias · estoque · contas a receber · caixa e bancos"
+    ]
+  }
 };

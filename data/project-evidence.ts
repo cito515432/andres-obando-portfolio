@@ -196,29 +196,29 @@ export const projectEvidence: Record<string, ProjectEvidence> = {
       }
     ]
   },
-    "jewelry-management-system": {
-      "preview": "jewelry-operations-overview.svg",
-      "images": [
-        {
-          "src": "/images/projects/jewelry-operations-overview.svg",
-          "width": 1600,
-          "height": 420,
-          "kind": "diagram",
-          "caption": {
-            "es": "Mapa conceptual de módulos operativos; no es una captura de la aplicación y no contiene datos reales.",
-            "en": "Conceptual map of operational modules; not an application screenshot and contains no real data.",
-            "fr": "Carte conceptuelle des modules opérationnels ; ce n'est pas une capture de l'application et elle ne contient aucune donnée réelle.",
-            "pt": "Mapa conceitual dos módulos operacionais; não é uma captura da aplicação e não contém dados reais."
-          },
-          "sourceLang": "en",
-          "source": {
-            "label": "Conceptual portfolio diagram",
-            "url": "/images/projects/jewelry-operations-overview.svg"
-          }
+  "jewelry-management-system": {
+    "preview": "jewelry-operations-overview.svg",
+    "images": [
+      {
+        "src": "/images/projects/jewelry-operations-overview.svg",
+        "width": 1600,
+        "height": 420,
+        "kind": "diagram",
+        "caption": {
+          "es": "Mapa conceptual de módulos operativos; no es una captura de la aplicación y no contiene datos reales.",
+          "en": "Conceptual map of operational modules; not an application screenshot and contains no real data.",
+          "fr": "Carte conceptuelle des modules opérationnels ; ce n'est pas une capture de l'application et elle ne contient aucune donnée réelle.",
+          "pt": "Mapa conceitual dos módulos operacionais; não é uma captura da aplicação e não contém dados reais."
+        },
+        "sourceLang": "en",
+        "source": {
+          "label": "Conceptual portfolio diagram",
+          "url": "/images/projects/jewelry-operations-overview.svg"
         }
-      ],
-      "sources": []
-    }
+      }
+    ],
+    "sources": []
+  }
 };
 
 export const skillEvidence: Record<string, {project:string;slug:string}> = {
