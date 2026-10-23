@@ -202,7 +202,7 @@ export const projectEvidence: Record<string, ProjectEvidence> = {
       {
         "src": "/images/projects/jewelry-operations-overview.svg",
         "width": 1600,
-        "height": 420,
+        "height": 900,
         "kind": "diagram",
         "caption": {
           "es": "Mapa conceptual de módulos operativos; no es una captura de la aplicación y no contiene datos reales.",

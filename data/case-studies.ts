@@ -348,7 +348,7 @@ export const caseStudies: CaseStudy[] = [
         "evidence": "Estrutura, notebooks e tecnologias verificados no README."
       }
     }
-  }
+  },
   {
     "slug": "jewelry-management-system",
     "projectName": "Jewelry Operations Management System",
