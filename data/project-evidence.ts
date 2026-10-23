@@ -200,19 +200,70 @@ export const projectEvidence: Record<string, ProjectEvidence> = {
     "preview": "jewelry-operations-overview.svg",
     "images": [
       {
+        "src": "/images/projects/jewelry-dashboard-demo.svg",
+        "width": 851,
+        "height": 1849,
+        "kind": "screenshot",
+        "caption": {
+          "es": "Vista representativa del resumen gerencial, generada a partir del pantallazo compartido; identidad y valores se sustituyeron por contenido de demostración.",
+          "en": "Representative management overview derived from the supplied screenshot; identity and figures are replaced with demo content.",
+          "fr": "Vue représentative du tableau de gestion, créée à partir de la capture fournie ; identité et valeurs remplacées par des données de démonstration.",
+          "pt": "Visão representativa do resumo gerencial, criada a partir da captura compartilhada; identidade e valores foram substituídos por conteúdo de demonstração."
+        },
+        "sourceLang": "es",
+        "source": {
+          "label": "jewelry-dashboard-demo.svg",
+          "url": "/images/projects/jewelry-dashboard-demo.svg"
+        }
+      },
+      {
+        "src": "/images/projects/jewelry-navigation-demo.svg",
+        "width": 851,
+        "height": 1849,
+        "kind": "screenshot",
+        "caption": {
+          "es": "Navegación móvil por módulos operativos e inteligencia gerencial. Vista representativa anonimizada del prototipo.",
+          "en": "Mobile navigation across operational modules and management intelligence. Representative anonymized prototype view.",
+          "fr": "Navigation mobile entre les modules opérationnels et l’intelligence de gestion. Vue représentative anonymisée du prototype.",
+          "pt": "Navegação móvel pelos módulos operacionais e inteligência gerencial. Visão representativa anonimizada do protótipo."
+        },
+        "sourceLang": "es",
+        "source": {
+          "label": "jewelry-navigation-demo.svg",
+          "url": "/images/projects/jewelry-navigation-demo.svg"
+        }
+      },
+      {
+        "src": "/images/projects/jewelry-assistant-demo.svg",
+        "width": 851,
+        "height": 1849,
+        "kind": "screenshot",
+        "caption": {
+          "es": "Vista representativa del asistente gerencial y del módulo de mercado de metales; usuario, identidad y valores se sustituyeron.",
+          "en": "Representative view of the management assistant and metals-market module; user, identity, and values were replaced.",
+          "fr": "Vue représentative de l’assistant de gestion et du module des métaux ; utilisateur, identité et valeurs ont été remplacés.",
+          "pt": "Visão representativa do assistente gerencial e do módulo de mercado de metais; usuário, identidade e valores foram substituídos."
+        },
+        "sourceLang": "es",
+        "source": {
+          "label": "jewelry-assistant-demo.svg",
+          "url": "/images/projects/jewelry-assistant-demo.svg"
+        }
+      },
+      {
         "src": "/images/projects/jewelry-operations-overview.svg",
         "width": 1600,
         "height": 900,
         "kind": "diagram",
         "caption": {
-          "es": "Mapa conceptual de módulos operativos; no es una captura de la aplicación y no contiene datos reales.",
-          "en": "Conceptual map of operational modules; not an application screenshot and contains no real data.",
-          "fr": "Carte conceptuelle des modules opérationnels ; ce n'est pas une capture de l'application et elle ne contient aucune donnée réelle.",
-          "pt": "Mapa conceitual dos módulos operacionais; não é uma captura da aplicação e não contém dados reais."
+          "es": "Mapa conceptual del alcance operativo; no contiene datos reales.",
+          "en": "Conceptual map of the operational scope; contains no real data.",
+          "fr": "Carte conceptuelle du périmètre opérationnel ; elle ne contient aucune donnée réelle.",
+          "pt": "Mapa conceitual do escopo operacional; não contém dados reais."
         },
         "sourceLang": "en",
         "source": {
-          "label": "Conceptual portfolio diagram",
+          "label": "jewelry-operations-overview.svg",
           "url": "/images/projects/jewelry-operations-overview.svg"
         }
       }
