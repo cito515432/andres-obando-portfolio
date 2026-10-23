@@ -1,12 +1,13 @@
 export type Project = {
   name: string;
   description: string;
-  url: string;
+  url?: string;
+  slug?: string;
   technologies: string[];
   metric: string;
   focus: string;
   proof: string;
-  kind: "data" | "security" | "ml" | "analytics" | "software";
+  kind: "data" | "security" | "ml" | "analytics" | "software" | "professional";
   featured?: boolean;
 };
 
@@ -46,6 +47,18 @@ export const profile = {
 };
 
 export const projects: Project[] = [
+  {
+    name: "Jewelry Operations Management System",
+    slug: "jewelry-management-system",
+    description:
+      "Web platform in development for jewelry-store operations across locations.",
+    technologies: ["POS", "Jewelry intake", "Inventory", "Receivables", "Cash & banks"],
+    metric: "In development",
+    focus: "Systems Engineering",
+    proof: "Pre-production validation in progress; no production claims or real business data.",
+    kind: "professional",
+    featured: true,
+  },
   {
     name: "Customer Churn Data Pipeline",
     description:

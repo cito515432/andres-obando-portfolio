@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Jewelry operations · conceptual workflow</title>
+  <desc id="desc">Conceptual, anonymized workflow for point of sale, jewelry intake, inventory, receivables, and cash and bank operations. This is not an application screenshot and contains no real business data.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17212b}
+    .eyebrow{font-size:20px;font-weight:700;letter-spacing:4px;fill:#527168}
+    .heading{font-size:46px;font-weight:700}
+    .subheading{font-size:23px;fill:#687971}
+    .status{font-size:18px;font-weight:700;letter-spacing:2px;fill:#173f35}
+    .card{fill:#fffdf7;stroke:#c7d7ce;stroke-width:3}
+    .num{fill:#e6b94f}
+    .numtext{font-size:18px;font-weight:700}
+    .label{font-size:31px;font-weight:700}
+    .small{font-size:21px;fill:#687971}
+    .route{fill:none;stroke:#d46a4c;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+    .foot{font-size:19px;font-weight:700;letter-spacing:1px;fill:#527168}
+  </style>
+  <defs><marker id="arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#d46a4c"/></marker></defs>
+  <rect width="1600" height="900" fill="#f5f1e8"/>
+  <circle cx="1515" cy="90" r="170" fill="#e6b94f" opacity=".12"/>
+  <path d="M95 164H1505" stroke="#d8d1c2" stroke-width="2"/>
+  <text x="100" y="75" class="eyebrow">SYSTEMS ENGINEERING · PROFESSIONAL PROJECT</text>
+  <text x="100" y="130" class="heading">Jewelry Operations</text>
+  <text x="100" y="159" class="subheading">Conceptual workflow · multi-location scope</text>
+  <rect x="1160" y="88" width="340" height="56" rx="28" fill="#e5eee8"/>
+  <circle cx="1193" cy="116" r="8" fill="#d46a4c"/>
+  <text x="1215" y="123" class="status">IN DEVELOPMENT</text>
+  <g transform="translate(100 235)"><rect class="card" width="410" height="210" rx="24"/><circle class="num" cx="42" cy="45" r="22"/><text class="numtext" x="42" y="52" text-anchor="middle">01</text><text class="label" x="82" y="55">POS sales</text><text class="small" x="36" y="112">Point-of-sale workflows</text><text class="small" x="36" y="148">with role-based access</text></g>
+  <g transform="translate(595 235)"><rect class="card" width="410" height="210" rx="24"/><circle class="num" cx="42" cy="45" r="22"/><text class="numtext" x="42" y="52" text-anchor="middle">02</text><text class="label" x="82" y="55">Jewelry intake</text><text class="small" x="36" y="112">Item registration and</text><text class="small" x="36" y="148">operational traceability</text></g>
+  <g transform="translate(1090 235)"><rect class="card" width="410" height="210" rx="24"/><circle class="num" cx="42" cy="45" r="22"/><text class="numtext" x="42" y="52" text-anchor="middle">03</text><text class="label" x="82" y="55">Inventory</text><text class="small" x="36" y="112">Stock visibility across</text><text class="small" x="36" y="148">multiple locations</text></g>
+  <path class="route" d="M510 340H585"/><path class="route" d="M1005 340H1080"/>
+  <path d="M1295 445V505H550V550" fill="none" stroke="#d46a4c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+  <g transform="translate(345 565)"><rect class="card" width="410" height="190" rx="24"/><circle class="num" cx="42" cy="45" r="22"/><text class="numtext" x="42" y="52" text-anchor="middle">04</text><text class="label" x="82" y="55">Receivables</text><text class="small" x="36" y="112">Accounts and follow-up</text><text class="small" x="36" y="148">workflows</text></g>
+  <g transform="translate(845 565)"><rect class="card" width="410" height="190" rx="24"/><circle class="num" cx="42" cy="45" r="22"/><text class="numtext" x="42" y="52" text-anchor="middle">05</text><text class="label" x="82" y="55">Cash &amp; banks</text><text class="small" x="36" y="112">Cash control and</text><text class="small" x="36" y="148">bank operations</text></g>
+  <path class="route" d="M755 660H835"/>
+  <path d="M100 805H1500" stroke="#d8d1c2" stroke-width="2"/>
+  <text x="100" y="850" class="foot">CONCEPTUAL MAP · NO CLIENT DATA OR PRODUCTION METRICS</text>
+</svg>
