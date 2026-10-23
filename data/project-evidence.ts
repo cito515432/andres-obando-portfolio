@@ -1,5 +1,5 @@
 import type { Locale } from "./i18n";
-export type EvidenceImage = { src: string; width: number; height: number; kind: "diagram" | "screenshot" | "notebook"; caption: Record<Locale, string>; sourceLang: string; source: { label: string; url: string } };
+export type EvidenceImage = { src: string; width: number; height: number; kind: "diagram" | "screenshot" | "notebook" | "demo"; caption: Record<Locale, string>; sourceLang: string; source: { label: string; url: string } };
 export type ProjectEvidence = { preview: string | null; images: EvidenceImage[]; sources: { label: string; url: string }[] };
 
 export const projectEvidence: Record<string, ProjectEvidence> = {
@@ -203,7 +203,7 @@ export const projectEvidence: Record<string, ProjectEvidence> = {
         "src": "/images/projects/jewelry-dashboard-demo.svg",
         "width": 851,
         "height": 1849,
-        "kind": "screenshot",
+        "kind": "demo",
         "caption": {
           "es": "Vista representativa del resumen gerencial, generada a partir del pantallazo compartido; identidad y valores se sustituyeron por contenido de demostración.",
           "en": "Representative management overview derived from the supplied screenshot; identity and figures are replaced with demo content.",
@@ -220,7 +220,7 @@ export const projectEvidence: Record<string, ProjectEvidence> = {
         "src": "/images/projects/jewelry-navigation-demo.svg",
         "width": 851,
         "height": 1849,
-        "kind": "screenshot",
+        "kind": "demo",
         "caption": {
           "es": "Navegación móvil por módulos operativos e inteligencia gerencial. Vista representativa anonimizada del prototipo.",
           "en": "Mobile navigation across operational modules and management intelligence. Representative anonymized prototype view.",
@@ -237,7 +237,7 @@ export const projectEvidence: Record<string, ProjectEvidence> = {
         "src": "/images/projects/jewelry-assistant-demo.svg",
         "width": 851,
         "height": 1849,
-        "kind": "screenshot",
+        "kind": "demo",
         "caption": {
           "es": "Vista representativa del asistente gerencial y del módulo de mercado de metales; usuario, identidad y valores se sustituyeron.",
           "en": "Representative view of the management assistant and metals-market module; user, identity, and values were replaced.",
