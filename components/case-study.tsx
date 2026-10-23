@@ -45,7 +45,7 @@ export function CaseStudyPage({ study, locale }: { study: CaseStudy; locale: Loc
         </section>
         <section id="evidence" className="study-section">
           <h2>{e.evidence}</h2>
-          <div className={`evidence-gallery${study.kind === "analytics" ? " evidence-gallery-pair" : ""}`}>
+          <div className={`evidence-gallery${study.slug === "jewelry-management-system" ? " evidence-gallery-screenshots" : study.kind === "analytics" ? " evidence-gallery-pair" : ""}`}>
             {gallery.map(item=><EvidenceFigure key={item.src} item={item} locale={locale} />)}
           </div>
           {architectureImage && !gallery.length && <a className="text-link" href={architectureImage.src} target="_blank" rel="noreferrer" data-analytics="project_evidence_open">{e.original} · {e.architecture} ↗</a>}
