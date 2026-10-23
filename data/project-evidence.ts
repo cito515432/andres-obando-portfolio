@@ -1,5 +1,5 @@
 import type { Locale } from "./i18n";
-export type EvidenceImage = { src: string; width: number; height: number; kind: "diagram" | "screenshot" | "notebook"; caption: Record<Locale, string>; sourceLang: string; source: { label: string; url: string } };
+export type EvidenceImage = { src: string; width: number; height: number; kind: "diagram" | "screenshot" | "notebook" | "demo"; caption: Record<Locale, string>; sourceLang: string; source: { label: string; url: string } };
 export type ProjectEvidence = { preview: string | null; images: EvidenceImage[]; sources: { label: string; url: string }[] };
 
 export const projectEvidence: Record<string, ProjectEvidence> = {
