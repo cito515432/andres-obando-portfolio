@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420" role="img" aria-labelledby="title desc">
+  <title id="title">Jewelry operations management · conceptual module map</title>
+  <desc id="desc">Conceptual development scope: point-of-sale sales, jewelry intake, inventory, receivables, and cash and bank workflows. In development, pre-production validation.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#17212b}.box{fill:#fffdf7;stroke:#1f6f5b;stroke-width:3}.arrow{stroke:#d46a4c;stroke-width:4;marker-end:url(#arrow)}.title{font-size:28px;font-weight:700}.label{font-size:23px;font-weight:700}.small{font-size:19px}.micro{font-size:16px}
+  </style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d46a4c"/></marker></defs>
+  <rect width="1600" height="420" fill="#f5f1e8"/>
+  <circle cx="1510" cy="18" r="120" fill="#e6b94f" opacity=".2"/>
+  <text x="800" y="48" text-anchor="middle" class="title">Jewelry Operations Management</text>
+  <text x="800" y="78" text-anchor="middle" class="small">Conceptual module map · no real business or customer data</text>
+  <g transform="translate(45 132)"><rect class="box" width="260" height="144" rx="16"/><circle cx="35" cy="36" r="18" fill="#e6b94f"/><text x="35" y="43" text-anchor="middle" class="small">01</text><text x="130" y="77" text-anchor="middle" class="label">POS sales</text><text x="130" y="108" text-anchor="middle" class="small">Point of sale</text></g>
+  <g transform="translate(350 132)"><rect class="box" width="260" height="144" rx="16"/><circle cx="35" cy="36" r="18" fill="#e6b94f"/><text x="35" y="43" text-anchor="middle" class="small">02</text><text x="130" y="77" text-anchor="middle" class="label">Jewelry intake</text><text x="130" y="108" text-anchor="middle" class="small">Entry workflows</text></g>
+  <g transform="translate(655 132)"><rect class="box" width="260" height="144" rx="16"/><circle cx="35" cy="36" r="18" fill="#e6b94f"/><text x="35" y="43" text-anchor="middle" class="small">03</text><text x="130" y="77" text-anchor="middle" class="label">Inventory</text><text x="130" y="108" text-anchor="middle" class="small">Multi-location scope</text></g>
+  <g transform="translate(960 132)"><rect class="box" width="260" height="144" rx="16"/><circle cx="35" cy="36" r="18" fill="#e6b94f"/><text x="35" y="43" text-anchor="middle" class="small">04</text><text x="130" y="77" text-anchor="middle" class="label">Receivables</text><text x="130" y="108" text-anchor="middle" class="small">Account workflows</text></g>
+  <g transform="translate(1265 132)"><rect class="box" width="260" height="144" rx="16"/><circle cx="35" cy="36" r="18" fill="#e6b94f"/><text x="35" y="43" text-anchor="middle" class="small">05</text><text x="130" y="77" text-anchor="middle" class="label">Cash &amp; banks</text><text x="130" y="108" text-anchor="middle" class="small">Treasury workflows</text></g>
+  <path class="arrow" d="M310 204h28"/><path class="arrow" d="M615 204h28"/><path class="arrow" d="M920 204h28"/><path class="arrow" d="M1225 204h28"/>
+  <rect x="300" y="322" width="1000" height="52" rx="26" fill="#163f35"/>
+  <text x="800" y="355" text-anchor="middle" style="font-size:18px;font-weight:700;fill:#fffdf7">IN DEVELOPMENT · PRE-PRODUCTION VALIDATION · CONCEPTUAL DIAGRAM</text>
+</svg>

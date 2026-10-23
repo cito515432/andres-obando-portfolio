@@ -3,8 +3,8 @@ import type { Locale } from "./i18n";
 export type CaseStudy = {
   slug: string;
   projectName: string;
-  repo: string;
-  kind: "data" | "security" | "ml" | "analytics";
+  repo?: string;
+  kind: "data" | "security" | "ml" | "analytics" | "professional";
   copy: Record<Locale, {
     label: string; title: string; summary: string; context: string; problem: string; objective: string;
     architecture: string; dataset: string; technologies: string; decisions: string; contribution: string;
@@ -346,6 +346,89 @@ export const caseStudies: CaseStudy[] = [
         "limitations": "Sem os dados, tamanhos, coeficientes e métricas finais não podem ser verificados.",
         "future": "Publicar dataset ou amostra autorizada e métricas de regressão.",
         "evidence": "Estrutura, notebooks e tecnologias verificados no README."
+      }
+    }
+  }
+  {
+    "slug": "jewelry-management-system",
+    "projectName": "Jewelry Operations Management System",
+    "kind": "professional",
+    "copy": {
+      "es": {
+        "label": "Proyecto profesional · en desarrollo",
+        "title": "Operación integrada, validada antes de producción",
+        "summary": "Plataforma web en desarrollo para centralizar ventas POS, ingreso de joyas, inventario, cartera, caja y bancos en varias sedes.",
+        "context": "Proyecto profesional de software para apoyar la operación de una joyería con varias sedes. El producto sigue en desarrollo y validación previa a producción.",
+        "problem": "Los flujos de venta, ingreso de piezas, inventario y finanzas requieren coordinación y control de acceso, sin perder trazabilidad entre sedes.",
+        "objective": "Diseñar y construir una plataforma que reúna flujos operativos clave y sea validada antes de cualquier despliegue a producción.",
+        "architecture": "Alcance conceptual: ventas POS → ingresos de joyas e inventario → cartera → caja y bancos. El acceso por roles y las salvaguardas de seguridad se validan junto con los flujos.",
+        "dataset": "Este caso no publica el nombre del negocio, datos de clientes, inventario, transacciones ni capturas internas. Las pruebas con datos sintéticos forman parte de la validación pendiente.",
+        "technologies": "Aplicación web, flujos POS, control de acceso por roles y procesos de inventario y finanzas. No se publica un stack técnico mientras se valida.",
+        "decisions": "Anonimizar el negocio, omitir datos comerciales y mostrar únicamente un diagrama conceptual; no atribuir resultados de producción.",
+        "contribution": "Participación en el desarrollo de una plataforma modular para digitalizar tareas operativas y centralizar información entre áreas y sedes.",
+        "results": "Los módulos están en integración. Las pruebas funcionales, POS, de carga y seguridad están pendientes; no hay métricas de producción que reportar.",
+        "challenges": "Coordinar operaciones de venta, inventario y finanzas con controles de acceso y consistencia entre sedes, manteniendo los datos del cliente fuera del portafolio.",
+        "learnings": "Importancia de validar flujos de extremo a extremo, permisos, auditoría y controles antes de una puesta en producción.",
+        "limitations": "En desarrollo; no está desplegado en producción. No se comparten datos reales, métricas de rendimiento, auditorías aprobadas ni capturas de la aplicación.",
+        "future": "Completar autenticación multifactor, preparar datos sintéticos de staging y ejecutar pruebas funcionales/POS, de carga y seguridad; corregir hallazgos antes de evaluar el despliegue.",
+        "evidence": "El diagrama que acompaña el caso representa el alcance conceptual; no es una captura del sistema ni evidencia de producción."
+      },
+      "en": {
+        "label": "Professional project · in development",
+        "title": "Integrated operations, validated before production",
+        "summary": "Web platform in development to bring POS sales, jewelry intake, inventory, receivables, cash, and bank workflows together across locations.",
+        "context": "Professional software project supporting a multi-location jewelry operation. The product remains in development and pre-production validation.",
+        "problem": "Sales, item intake, inventory, and finance workflows need coordination and access controls while preserving traceability across locations.",
+        "objective": "Design and build a platform that brings key operational workflows together and is validated before any production deployment.",
+        "architecture": "Conceptual scope: POS sales → jewelry intake and inventory → receivables → cash and banks. Role-based access and security safeguards are validated alongside the workflows.",
+        "dataset": "This case does not disclose the business name, customer records, inventory, transactions, or internal screenshots. Testing with synthetic data remains part of the pending validation.",
+        "technologies": "Web application, POS workflows, role-based access, and inventory and finance processes. The technical stack is not published while validation is in progress.",
+        "decisions": "Anonymize the business, omit operational data, and show only a conceptual diagram; make no production-result claims.",
+        "contribution": "Contributing to the development of a modular platform to digitize operational tasks and centralize information across functions and locations.",
+        "results": "Modules are being integrated. Functional, POS, load, and security testing are pending; there are no production metrics to report.",
+        "challenges": "Coordinating sales, inventory, and finance workflows with access controls and cross-location consistency while keeping client data out of the portfolio.",
+        "learnings": "The importance of validating end-to-end flows, permissions, auditability, and safeguards before a production launch.",
+        "limitations": "In development; not deployed to production. No real data, performance metrics, completed audits, or application screenshots are shared.",
+        "future": "Complete multi-factor authentication, prepare synthetic staging data, and run functional/POS, load, and security tests; address findings before evaluating deployment.",
+        "evidence": "The accompanying diagram represents conceptual scope; it is not a system screenshot or evidence of production."
+      },
+      "fr": {
+        "label": "Projet professionnel · en développement",
+        "title": "Des opérations intégrées, validées avant la production",
+        "summary": "Plateforme web en développement pour centraliser les ventes POS, l'entrée des bijoux, les stocks, les créances, la caisse et les opérations bancaires sur plusieurs sites.",
+        "context": "Projet professionnel de logiciel destiné à soutenir les opérations d'une bijouterie multisite. Le produit est encore en développement et en validation préproduction.",
+        "problem": "Les ventes, l'entrée des articles, les stocks et les finances nécessitent coordination et contrôle d'accès, tout en conservant la traçabilité entre sites.",
+        "objective": "Concevoir et développer une plateforme réunissant les principaux flux opérationnels, à valider avant tout déploiement en production.",
+        "architecture": "Périmètre conceptuel : ventes POS → entrée des bijoux et stocks → créances → caisse et banques. Les accès par rôle et les mesures de sécurité sont validés avec les flux.",
+        "dataset": "Ce cas ne révèle ni le nom de l'entreprise, ni des données clients, stocks, transactions ou captures internes. Les tests avec des données synthétiques font partie de la validation encore à réaliser.",
+        "technologies": "Application web, flux POS, contrôle d'accès par rôle et processus de stock et de finance. La pile technique n'est pas publiée pendant la validation.",
+        "decisions": "Anonymiser l'entreprise, exclure les données opérationnelles et ne présenter qu'un schéma conceptuel, sans revendiquer de résultats en production.",
+        "contribution": "Participation au développement d'une plateforme modulaire visant à numériser les opérations et centraliser l'information entre fonctions et sites.",
+        "results": "Les modules sont en cours d'intégration. Les tests fonctionnels, POS, de charge et de sécurité restent à réaliser ; aucun indicateur de production n'est disponible.",
+        "challenges": "Coordonner ventes, stocks et finances avec des contrôles d'accès et une cohérence multisite, sans exposer les données du client dans le portfolio.",
+        "learnings": "L'importance de valider les flux de bout en bout, les autorisations, l'auditabilité et les protections avant la mise en production.",
+        "limitations": "En développement ; non déployé en production. Aucune donnée réelle, mesure de performance, audit achevé ou capture de l'application n'est publiée.",
+        "future": "Terminer l'authentification multifacteur, préparer des données synthétiques de staging et exécuter les tests fonctionnels/POS, de charge et de sécurité ; corriger les constats avant d'évaluer le déploiement.",
+        "evidence": "Le schéma joint présente le périmètre conceptuel ; ce n'est ni une capture du système ni une preuve de mise en production."
+      },
+      "pt": {
+        "label": "Projeto profissional · em desenvolvimento",
+        "title": "Operação integrada, validada antes da produção",
+        "summary": "Plataforma web em desenvolvimento para reunir vendas POS, entrada de joias, estoque, contas a receber, caixa e operações bancárias em várias unidades.",
+        "context": "Projeto profissional de software para apoiar a operação de uma joalheria com várias unidades. O produto continua em desenvolvimento e validação pré-produção.",
+        "problem": "Vendas, entrada de peças, estoque e finanças precisam de coordenação e controle de acesso sem perder rastreabilidade entre unidades.",
+        "objective": "Projetar e desenvolver uma plataforma que reúna fluxos operacionais importantes e seja validada antes de qualquer implantação em produção.",
+        "architecture": "Escopo conceitual: vendas POS → entrada de joias e estoque → contas a receber → caixa e bancos. O acesso por funções e as proteções de segurança são validados com os fluxos.",
+        "dataset": "Este caso não divulga o nome da empresa, dados de clientes, estoque, transações ou capturas internas. Testes com dados sintéticos fazem parte da validação pendente.",
+        "technologies": "Aplicação web, fluxos POS, controle de acesso por função e processos de estoque e finanças. A pilha técnica não é publicada durante a validação.",
+        "decisions": "Anonimizar a empresa, omitir dados operacionais e apresentar somente um diagrama conceitual, sem alegações de resultados em produção.",
+        "contribution": "Participação no desenvolvimento de uma plataforma modular para digitalizar tarefas operacionais e centralizar informações entre áreas e unidades.",
+        "results": "Os módulos estão sendo integrados. Testes funcionais, POS, de carga e segurança ainda estão pendentes; não há métricas de produção a relatar.",
+        "challenges": "Coordenar vendas, estoque e finanças com controles de acesso e consistência entre unidades sem expor dados do cliente no portfólio.",
+        "learnings": "A importância de validar fluxos de ponta a ponta, permissões, auditabilidade e controles antes da entrada em produção.",
+        "limitations": "Em desenvolvimento; não implantado em produção. Não são compartilhados dados reais, métricas de desempenho, auditorias concluídas ou capturas da aplicação.",
+        "future": "Concluir autenticação multifator, preparar dados sintéticos de staging e executar testes funcionais/POS, de carga e segurança; corrigir achados antes de avaliar a implantação.",
+        "evidence": "O diagrama que acompanha o caso representa o escopo conceitual; não é uma captura do sistema nem evidência de produção."
       }
     }
   }

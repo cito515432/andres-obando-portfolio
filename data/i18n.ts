@@ -330,6 +330,30 @@ export const copy: Record<Locale, Copy> = {
           "Cuatro notebooks y gráficos originales conservados. La ejecución completa requiere un dataset no incluido.",
         metric: "4 notebooks",
       },
+      "Jewelry Operations Management System": {
+        description: "Plataforma web en desarrollo para una operación joyera de varias sedes: POS, ingreso de joyas, inventario, cartera, caja y bancos. La validación previa a producción sigue en curso.",
+        focus: "Systems Engineering · proyecto profesional",
+        proof: "Módulos en integración; pruebas funcionales, POS, carga y seguridad pendientes. Sin datos reales ni resultados de producción.",
+        metric: "En desarrollo",
+      },
+      "Jewelry Operations Management System": {
+        description: "Web platform in development for multi-location jewelry operations: POS, jewelry intake, inventory, receivables, cash, and bank workflows. Pre-production validation is ongoing.",
+        focus: "Systems Engineering · Professional project",
+        proof: "Modules in integration; functional, POS, load, and security tests pending. No real data or production results.",
+        metric: "In development",
+      },
+      "Jewelry Operations Management System": {
+        description: "Plateforme web en développement pour une bijouterie multisite : ventes POS, entrée des bijoux, stocks, créances, caisse et banques. La validation préproduction est en cours.",
+        focus: "Systems Engineering · Projet professionnel",
+        proof: "Modules en intégration ; tests fonctionnels, POS, de charge et de sécurité à réaliser. Aucune donnée réelle ni résultat de production.",
+        metric: "En développement",
+      },
+      "Jewelry Operations Management System": {
+        description: "Plataforma web em desenvolvimento para uma operação joalheira com várias unidades: POS, entrada de joias, estoque, contas a receber, caixa e bancos. A validação pré-produção está em andamento.",
+        focus: "Systems Engineering · Projeto profissional",
+        proof: "Módulos em integração; testes funcionais, POS, de carga e segurança pendentes. Sem dados reais ou resultados de produção.",
+        metric: "Em desenvolvimento",
+      },
       "Contact Manager Java Web": {
         description:
           "Aplicación Java/JSP para administrar usuarios y contactos con persistencia MySQL y flujos basados en roles.",

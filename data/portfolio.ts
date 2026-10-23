@@ -1,12 +1,13 @@
 export type Project = {
   name: string;
   description: string;
-  url: string;
+  url?: string;
+  slug?: string;
   technologies: string[];
   metric: string;
   focus: string;
   proof: string;
-  kind: "data" | "security" | "ml" | "analytics" | "software";
+  kind: "data" | "security" | "ml" | "analytics" | "software" | "professional";
   featured?: boolean;
 };
 
@@ -92,6 +93,18 @@ export const projects: Project[] = [
     focus: "Data Analytics",
     proof: "Cuatro notebooks y gráficos originales conservados; la ejecución completa requiere un dataset no incluido.",
     kind: "analytics",
+    featured: true,
+  },
+  {
+    name: "Jewelry Operations Management System",
+    slug: "jewelry-management-system",
+    description:
+      "Web platform in development for jewelry-store operations across locations.",
+    technologies: ["POS", "Jewelry intake", "Inventory", "Receivables", "Cash & banks"],
+    metric: "In development",
+    focus: "Systems Engineering",
+    proof: "Pre-production validation in progress; no production claims or real business data.",
+    kind: "professional",
     featured: true,
   },
   {
