@@ -362,16 +362,16 @@ export const caseStudies: CaseStudy[] = [
         "problem": "Los flujos de venta, ingreso de piezas, inventario y finanzas requieren coordinación y control de acceso, sin perder trazabilidad entre sedes.",
         "objective": "Diseñar y construir una plataforma que reúna flujos operativos clave y sea validada antes de cualquier despliegue a producción.",
         "architecture": "Alcance conceptual: ventas POS → ingresos de joyas e inventario → cartera → caja y bancos. El acceso por roles y las salvaguardas de seguridad se validan junto con los flujos.",
-        "dataset": "Este caso no publica el nombre del negocio, datos de clientes, inventario, transacciones ni capturas internas. Las pruebas con datos sintéticos forman parte de la validación pendiente.",
+        "dataset": "El caso no publica conjuntos de datos, inventario, transacciones ni registros reales. Las tres vistas que lo acompañan son representaciones generadas a partir de las capturas compartidas y anonimizadas: marca, dominio, usuario y valores se sustituyeron por contenido de demostración.",
         "technologies": "Aplicación web, flujos POS, control de acceso por roles y procesos de inventario y finanzas. No se publica un stack técnico mientras se valida.",
-        "decisions": "Anonimizar el negocio, omitir datos comerciales y mostrar únicamente un diagrama conceptual; no atribuir resultados de producción.",
+        "decisions": "Anonimizar las capturas aportadas y sustituir la marca, el dominio, el usuario y los valores operativos por contenido genérico; no atribuir métricas ni resultados de producción.",
         "contribution": "Participación en el desarrollo de una plataforma modular para digitalizar tareas operativas y centralizar información entre áreas y sedes.",
         "results": "Los módulos están en integración. Las pruebas funcionales, POS, de carga y seguridad están pendientes; no hay métricas de producción que reportar.",
         "challenges": "Coordinar operaciones de venta, inventario y finanzas con controles de acceso y consistencia entre sedes, manteniendo los datos del cliente fuera del portafolio.",
         "learnings": "Importancia de validar flujos de extremo a extremo, permisos, auditoría y controles antes de una puesta en producción.",
-        "limitations": "En desarrollo; no está desplegado en producción. No se comparten datos reales, métricas de rendimiento, auditorías aprobadas ni capturas de la aplicación.",
+        "limitations": "En desarrollo; no está desplegado en producción. Las imágenes son representaciones anonimizadas del prototipo, no evidencia de resultados reales; no se publican registros comerciales, métricas de rendimiento ni auditorías aprobadas.",
         "future": "Completar autenticación multifactor, preparar datos sintéticos de staging y ejecutar pruebas funcionales/POS, de carga y seguridad; corregir hallazgos antes de evaluar el despliegue.",
-        "evidence": "El diagrama que acompaña el caso representa el alcance conceptual; no es una captura del sistema ni evidencia de producción."
+        "evidence": "Las tres vistas representativas se generaron a partir de los pantallazos compartidos y se anonimizaron para el portafolio. Identidades y valores fueron sustituidos; no son evidencia de resultados de producción."
       },
       "en": {
         "label": "Professional project · in development",
@@ -381,16 +381,16 @@ export const caseStudies: CaseStudy[] = [
         "problem": "Sales, item intake, inventory, and finance workflows need coordination and access controls while preserving traceability across locations.",
         "objective": "Design and build a platform that brings key operational workflows together and is validated before any production deployment.",
         "architecture": "Conceptual scope: POS sales → jewelry intake and inventory → receivables → cash and banks. Role-based access and security safeguards are validated alongside the workflows.",
-        "dataset": "This case does not disclose the business name, customer records, inventory, transactions, or internal screenshots. Testing with synthetic data remains part of the pending validation.",
+        "dataset": "This case does not publish datasets, inventory, transactions, or real records. Its three accompanying views are representative images derived from the supplied prototype screenshots and anonymized: the brand, domain, user, and values were replaced with demo content.",
         "technologies": "Web application, POS workflows, role-based access, and inventory and finance processes. The technical stack is not published while validation is in progress.",
-        "decisions": "Anonymize the business, omit operational data, and show only a conceptual diagram; make no production-result claims.",
+        "decisions": "Anonymize the supplied screenshots by replacing the brand, domain, user, and operational values with generic demo content; make no production-metric or result claims.",
         "contribution": "Contributing to the development of a modular platform to digitize operational tasks and centralize information across functions and locations.",
         "results": "Modules are being integrated. Functional, POS, load, and security testing are pending; there are no production metrics to report.",
         "challenges": "Coordinating sales, inventory, and finance workflows with access controls and cross-location consistency while keeping client data out of the portfolio.",
         "learnings": "The importance of validating end-to-end flows, permissions, auditability, and safeguards before a production launch.",
-        "limitations": "In development; not deployed to production. No real data, performance metrics, completed audits, or application screenshots are shared.",
+        "limitations": "In development; not deployed to production. The images are anonymized prototype representations, not evidence of real results; no business records, performance metrics, or completed audits are published.",
         "future": "Complete multi-factor authentication, prepare synthetic staging data, and run functional/POS, load, and security tests; address findings before evaluating deployment.",
-        "evidence": "The accompanying diagram represents conceptual scope; it is not a system screenshot or evidence of production."
+        "evidence": "The three representative views were derived from the supplied screenshots and anonymized for the portfolio. Identities and values were replaced; they are not evidence of production results."
       },
       "fr": {
         "label": "Projet professionnel · en développement",
@@ -400,16 +400,16 @@ export const caseStudies: CaseStudy[] = [
         "problem": "Les ventes, l'entrée des articles, les stocks et les finances nécessitent coordination et contrôle d'accès, tout en conservant la traçabilité entre sites.",
         "objective": "Concevoir et développer une plateforme réunissant les principaux flux opérationnels, à valider avant tout déploiement en production.",
         "architecture": "Périmètre conceptuel : ventes POS → entrée des bijoux et stocks → créances → caisse et banques. Les accès par rôle et les mesures de sécurité sont validés avec les flux.",
-        "dataset": "Ce cas ne révèle ni le nom de l'entreprise, ni des données clients, stocks, transactions ou captures internes. Les tests avec des données synthétiques font partie de la validation encore à réaliser.",
+        "dataset": "Ce cas ne publie ni jeu de données, ni stock, ni transaction, ni dossier réel. Les trois vues qui l’accompagnent sont des représentations dérivées des captures fournies du prototype et anonymisées : marque, domaine, utilisateur et valeurs ont été remplacés par du contenu de démonstration.",
         "technologies": "Application web, flux POS, contrôle d'accès par rôle et processus de stock et de finance. La pile technique n'est pas publiée pendant la validation.",
-        "decisions": "Anonymiser l'entreprise, exclure les données opérationnelles et ne présenter qu'un schéma conceptuel, sans revendiquer de résultats en production.",
+        "decisions": "Anonymiser les captures fournies en remplaçant la marque, le domaine, l’utilisateur et les valeurs opérationnelles par du contenu générique ; ne revendiquer aucune métrique ni aucun résultat de production.",
         "contribution": "Participation au développement d'une plateforme modulaire visant à numériser les opérations et centraliser l'information entre fonctions et sites.",
         "results": "Les modules sont en cours d'intégration. Les tests fonctionnels, POS, de charge et de sécurité restent à réaliser ; aucun indicateur de production n'est disponible.",
         "challenges": "Coordonner ventes, stocks et finances avec des contrôles d'accès et une cohérence multisite, sans exposer les données du client dans le portfolio.",
         "learnings": "L'importance de valider les flux de bout en bout, les autorisations, l'auditabilité et les protections avant la mise en production.",
-        "limitations": "En développement ; non déployé en production. Aucune donnée réelle, mesure de performance, audit achevé ou capture de l'application n'est publiée.",
+        "limitations": "En développement ; non déployé en production. Les images sont des représentations anonymisées du prototype, pas une preuve de résultats réels ; aucun dossier commercial, indicateur de performance ni audit achevé n’est publié.",
         "future": "Terminer l'authentification multifacteur, préparer des données synthétiques de staging et exécuter les tests fonctionnels/POS, de charge et de sécurité ; corriger les constats avant d'évaluer le déploiement.",
-        "evidence": "Le schéma joint présente le périmètre conceptuel ; ce n'est ni une capture du système ni une preuve de mise en production."
+        "evidence": "Les trois vues représentatives ont été dérivées des captures fournies et anonymisées pour le portfolio. Identités et valeurs ont été remplacées ; elles ne prouvent aucun résultat en production."
       },
       "pt": {
         "label": "Projeto profissional · em desenvolvimento",
@@ -419,16 +419,16 @@ export const caseStudies: CaseStudy[] = [
         "problem": "Vendas, entrada de peças, estoque e finanças precisam de coordenação e controle de acesso sem perder rastreabilidade entre unidades.",
         "objective": "Projetar e desenvolver uma plataforma que reúna fluxos operacionais importantes e seja validada antes de qualquer implantação em produção.",
         "architecture": "Escopo conceitual: vendas POS → entrada de joias e estoque → contas a receber → caixa e bancos. O acesso por funções e as proteções de segurança são validados com os fluxos.",
-        "dataset": "Este caso não divulga o nome da empresa, dados de clientes, estoque, transações ou capturas internas. Testes com dados sintéticos fazem parte da validação pendente.",
+        "dataset": "Este caso não publica conjuntos de dados, estoque, transações ou registros reais. As três imagens que o acompanham são representações derivadas das capturas fornecidas do protótipo e anonimizadas: marca, domínio, usuário e valores foram substituídos por conteúdo de demonstração.",
         "technologies": "Aplicação web, fluxos POS, controle de acesso por função e processos de estoque e finanças. A pilha técnica não é publicada durante a validação.",
-        "decisions": "Anonimizar a empresa, omitir dados operacionais e apresentar somente um diagrama conceitual, sem alegações de resultados em produção.",
+        "decisions": "Anonimizar as capturas fornecidas, substituindo marca, domínio, usuário e valores operacionais por conteúdo genérico; não atribuir métricas nem resultados de produção.",
         "contribution": "Participação no desenvolvimento de uma plataforma modular para digitalizar tarefas operacionais e centralizar informações entre áreas e unidades.",
         "results": "Os módulos estão sendo integrados. Testes funcionais, POS, de carga e segurança ainda estão pendentes; não há métricas de produção a relatar.",
         "challenges": "Coordenar vendas, estoque e finanças com controles de acesso e consistência entre unidades sem expor dados do cliente no portfólio.",
         "learnings": "A importância de validar fluxos de ponta a ponta, permissões, auditabilidade e controles antes da entrada em produção.",
-        "limitations": "Em desenvolvimento; não implantado em produção. Não são compartilhados dados reais, métricas de desempenho, auditorias concluídas ou capturas da aplicação.",
+        "limitations": "Em desenvolvimento; não implantado em produção. As imagens são representações anonimizadas do protótipo, não evidência de resultados reais; nenhum registro comercial, métrica de desempenho ou auditoria concluída é publicado.",
         "future": "Concluir autenticação multifator, preparar dados sintéticos de staging e executar testes funcionais/POS, de carga e segurança; corrigir achados antes de avaliar a implantação.",
-        "evidence": "O diagrama que acompanha o caso representa o escopo conceitual; não é uma captura do sistema nem evidência de produção."
+        "evidence": "As três visões representativas foram derivadas das capturas fornecidas e anonimizadas para o portfólio. Identidades e valores foram substituídos; elas não comprovam resultados de produção."
       }
     }
   }
