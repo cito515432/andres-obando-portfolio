@@ -331,10 +331,10 @@ export const copy: Record<Locale, Copy> = {
         metric: "4 notebooks",
       },
       "Jewelry Operations Management System": {
-        description: "Plataforma web en desarrollo para una operación joyera de varias sedes: POS, ingreso de joyas, inventario, cartera, caja y bancos. La validación previa a producción sigue en curso.",
+        description: "Plataforma web terminada para la operación de una joyería multisede: ventas POS, ingreso de joyas, inventario, cartera, caja y bancos.",
         focus: "Systems Engineering · proyecto profesional",
-        proof: "Módulos en integración; pruebas funcionales, POS, carga y seguridad pendientes. Sin datos reales ni resultados de producción.",
-        metric: "En desarrollo",
+        proof: "Desarrollo completado. El caso muestra capturas anonimizadas y no publica datos comerciales ni métricas de producción.",
+        metric: "Proyecto terminado",
       },
       
       
@@ -590,10 +590,10 @@ export const copy: Record<Locale, Copy> = {
         metric: "4 notebooks",
       },
       "Jewelry Operations Management System": {
-        description: "Web platform in development for multi-location jewelry operations: POS, jewelry intake, inventory, receivables, cash, and bank workflows. Pre-production validation is ongoing.",
+        description: "Completed web platform for multi-location jewelry operations: POS, jewelry intake, inventory, receivables, cash, and bank workflows.",
         focus: "Systems Engineering · Professional project",
-        proof: "Modules in integration; functional, POS, load, and security tests pending. No real data or production results.",
-        metric: "In development",
+        proof: "Development is complete. The case study uses anonymized screens and publishes no real business data or production metrics.",
+        metric: "Completed project",
       },
       "Contact Manager Java Web": {
         description:
@@ -847,10 +847,10 @@ export const copy: Record<Locale, Copy> = {
         metric: "4 notebooks",
       },
       "Jewelry Operations Management System": {
-        description: "Plateforme web en développement pour une bijouterie multisite : ventes POS, entrée des bijoux, stocks, créances, caisse et banques. La validation préproduction est en cours.",
+        description: "Plateforme web terminée pour les opérations d'une bijouterie multisite : ventes POS, entrée des bijoux, stocks, créances, caisse et banques.",
         focus: "Systems Engineering · Projet professionnel",
-        proof: "Modules en intégration ; tests fonctionnels, POS, de charge et de sécurité à réaliser. Aucune donnée réelle ni résultat de production.",
-        metric: "En développement",
+        proof: "Développement terminé. L’étude utilise des captures anonymisées et ne publie aucune donnée commerciale ni métrique de production.",
+        metric: "Projet terminé",
       },
       "Contact Manager Java Web": {
         description:
@@ -1105,10 +1105,10 @@ export const copy: Record<Locale, Copy> = {
         metric: "4 notebooks",
       },
       "Jewelry Operations Management System": {
-        description: "Plataforma web em desenvolvimento para uma operação joalheira com várias unidades: POS, entrada de joias, estoque, contas a receber, caixa e bancos. A validação pré-produção está em andamento.",
+        description: "Plataforma web concluída para as operações de uma joalheria com várias unidades: POS, entrada de joias, estoque, contas a receber, caixa e bancos.",
         focus: "Systems Engineering · Projeto profissional",
-        proof: "Módulos em integração; testes funcionais, POS, de carga e segurança pendentes. Sem dados reais ou resultados de produção.",
-        metric: "Em desenvolvimento",
+        proof: "Desenvolvimento concluído. O estudo usa telas anonimizadas e não publica dados comerciais reais nem métricas de produção.",
+        metric: "Projeto concluído",
       },
       "Contact Manager Java Web": {
         description:
