@@ -38,10 +38,10 @@ import { RecognitionGallery } from "@/components/recognition-gallery";
 type BrandIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
 const shortAvailability: Record<Locale, string> = {
-  es: "Nov. 2026",
-  en: "Nov. 2026",
-  fr: "nov. 2026",
-  pt: "nov. 2026",
+  es: "Inmediata",
+  en: "Immediate",
+  fr: "Immédiate",
+  pt: "Imediata",
 };
 
 const recordMetricLabel: Record<Locale, string> = {
