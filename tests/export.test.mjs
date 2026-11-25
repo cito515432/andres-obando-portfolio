@@ -14,6 +14,12 @@ const localizedProjectSentinels={
   fr:['Pipeline de bout en bout','Professeur de programmation','Plateforme web terminée pour les opérations d\'une bijouterie multisite','Projet terminé'],
   pt:['Pipeline de ponta a ponta','Professor de programação','Plataforma web concluída para as operações de uma joalheria com várias unidades','Projeto concluído'],
 };
+const localizedCareerSentinels={
+  es:['Disponibilidad inmediata','10.º semestre','octubre de 2027','cargos junior por contrato'],
+  en:['Available immediately','Tenth semester','October 2027','junior contract roles'],
+  fr:['Disponibilité immédiate','Dixième semestre','octobre 2027','contrat junior'],
+  pt:['Disponibilidade imediata','Décimo semestre','outubro de 2027','cargos júnior por contrato'],
+};
 const localizedRecognitionSentinels={
   es:['Distinción por monitoría en Fundamentos de Ciencias de Datos','Reconocimiento por desempeño como tutor'],
   en:['Recognition for a Data Science Fundamentals teaching assistantship','Recognition for tutor performance'],
@@ -43,6 +49,7 @@ for (const [locale,prefix]of Object.entries(prefixes)) {
         assert.equal(d.querySelectorAll('.project-card').length,5);
         assert.ok(d.body.textContent.includes(copy[locale].hero.availability));
         for(const sentinel of localizedProjectSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} copy: ${sentinel}`);
+        for(const sentinel of localizedCareerSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} career copy: ${sentinel}`);
         assert.equal(d.querySelectorAll('#reconocimientos .recognition-card').length,2);
         for(const sentinel of localizedRecognitionSentinels[locale])assert.ok(d.body.textContent.includes(sentinel),`${route}: missing ${locale} recognition: ${sentinel}`);
         assert.ok(!d.querySelector('#certificados').textContent.includes(localizedRecognitionSentinels[locale][0]),`${route}: recognition duplicated in credentials`);
