@@ -9,10 +9,10 @@ const {copy}=loadTs('data/i18n.ts');
 const site='https://andres-obando-portfolio-static.onrender.com';
 const prefixes={es:'/',en:'/en/',fr:'/fr/',pt:'/pt/'};
 const localizedProjectSentinels={
-  es:['Pipeline end-to-end','Profesor de programación de software','Plataforma web en desarrollo para una operación joyera'],
-  en:['End-to-end pipeline','Software Programming Instructor','Web platform in development for multi-location jewelry operations'],
-  fr:['Pipeline de bout en bout','Professeur de programmation','Plateforme web en développement pour une bijouterie multisite'],
-  pt:['Pipeline de ponta a ponta','Professor de programação','Plataforma web em desenvolvimento para uma operação joalheira'],
+  es:['Pipeline end-to-end','Profesor de programación de software','Plataforma web terminada para la operación de una joyería multisede','Proyecto terminado'],
+  en:['End-to-end pipeline','Software Programming Instructor','Completed web platform for multi-location jewelry operations','Completed project'],
+  fr:['Pipeline de bout en bout','Professeur de programmation','Plateforme web terminée pour les opérations d\'une bijouterie multisite','Projet terminé'],
+  pt:['Pipeline de ponta a ponta','Professor de programação','Plataforma web concluída para as operações de uma joalheria com várias unidades','Projeto concluído'],
 };
 const localizedRecognitionSentinels={
   es:['Distinción por monitoría en Fundamentos de Ciencias de Datos','Reconocimiento por desempeño como tutor'],
