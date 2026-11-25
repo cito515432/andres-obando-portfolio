@@ -15,10 +15,10 @@ const localizedProjectSentinels={
   pt:['Pipeline de ponta a ponta','Professor de programação','Plataforma web concluída para as operações de uma joalheria com várias unidades','Projeto concluído'],
 };
 const localizedCareerSentinels={
-  es:['Disponibilidad inmediata','10.º semestre','octubre de 2027','cargos junior por contrato'],
-  en:['Available immediately','Tenth semester','October 2027','junior contract roles'],
-  fr:['Disponibilité immédiate','Dixième semestre','octobre 2027','contrat junior'],
-  pt:['Disponibilidade imediata','Décimo semestre','outubro de 2027','cargos júnior por contrato'],
+  es:['Disponibilidad inmediata','Inmediata','10.º semestre','octubre de 2027','cargos junior por contrato'],
+  en:['Available immediately','Immediate','Tenth semester','October 2027','junior contract roles'],
+  fr:['Disponibilité immédiate','Immédiate','Dixième semestre','octobre 2027','contrat junior'],
+  pt:['Disponibilidade imediata','Imediata','Décimo semestre','outubro de 2027','cargos júnior por contrato'],
 };
 const localizedRecognitionSentinels={
   es:['Distinción por monitoría en Fundamentos de Ciencias de Datos','Reconocimiento por desempeño como tutor'],
