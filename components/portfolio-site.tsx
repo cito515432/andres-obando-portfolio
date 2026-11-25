@@ -81,7 +81,7 @@ export function PortfolioSite({ locale = "es" }: { locale?: Locale }) {
         ? { "Customer Churn Data Pipeline": "1 mi de registros", "Global ISO Security": "93 controles · 5 papéis", "FC Barcelona Player Performance ML": "4 modelos comparados", "Laptop Price Statistical Analysis": "4 notebooks" }
         : {};
   const contactText = locale === "es"
-    ? "Disponible para práctica profesional desde noviembre de 2026. Mi objetivo principal es Data Engineering; también considero Sistemas, Backend, Cloud / Data y Data Analytics según el alcance del rol, incluyendo equipos internacionales. Bogotá, modalidad híbrida o remota e inglés B2. Conversemos."
+    ? "Disponibilidad inmediata para prácticas profesionales y cargos junior por contrato. Mi objetivo principal es Data Engineering; también considero Sistemas, Backend, Cloud / Data y Data Analytics según el alcance del rol, incluidos equipos internacionales. Bogotá, modalidad híbrida o remota, inglés B2. Conversemos."
     : c.contact.text;
 
   return (
